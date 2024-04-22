@@ -92,6 +92,8 @@ oImageVolumeWithSampleIdsPatient003T1 = LabelledImageVolumeWithSampleIdsForFeatu
 %     voT1Images(9), sFeatureSource,...
 %     oSampleLabels);
 
+%
+
 voImageHandlers = [oImageVolumeWithSampleIdsPatient002T1, oImageVolumeWithSampleIdsPatient003T1, oImageVolumeWithSampleIdsPatient004T1, oImageVolumeWithSampleIdsPatient005T1];
 %voImageHandlers = [oImageVolumeWithSampleIdsPatient002T1, oImageVolumeWithSampleIdsPatient003T1, oImageVolumeWithSampleIdsPatient004T1, oImageVolumeWithSampleIdsPatient005T1, oImageVolumeWithSampleIdsPatient006T1, oImageVolumeWithSampleIdsPatient007T1, oImageVolumeWithSampleIdsPatient008T1, oImageVolumeWithSampleIdsPatient009T1, oImageVolumeWithSampleIdsPatient010T1];
 
