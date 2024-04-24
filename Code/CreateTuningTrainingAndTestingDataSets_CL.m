@@ -1,7 +1,4 @@
-function [oTuningSet, oTrainingSet, oTestingSet] = CreateTuningTrainingAndTestingDataSets_CL(oLabelledFeatureValues)
-%  This function takes a labelled feature values object with 100 samples
-%  and splits it into a tuning set (40 samples), training set (40 samples),
-%  and testing set (20 samples).
+function [oTuningSet, oTrainingSet, oTestingSet] = CreateTuningTrainingAndTestingDataSets_CL(oLabelledFeatureValues, tuningRatio, trainingRatio, testingRatio)
 
 % Get labelled feature values object for another demo
 % oLabelledFeatureValues = CreateLabelledFeatureValuesFromDataMatrix_Demo();
@@ -10,26 +7,26 @@ function [oTuningSet, oTrainingSet, oTestingSet] = CreateTuningTrainingAndTestin
 rng(7); % reproducible randomization
 vdSelectionIndices = randperm(oLabelledFeatureValues.GetNumberOfSamples());
 
-%TO DO: make calculations dynamic and handle even/odd values
 dNumSamples = oLabelledFeatureValues.GetNumberOfSamples();
-dTuningMax = dNumSamples / 4;
-dTrainingMin = dTuningMax + 1;
-dTrainingMax = dNumSamples / 4 * 3;
-dTestingMin = dTrainingMax + 1;
+
+% Calculate the number of samples for each subset based on the provided ratios
+numTuning = ceil(dNumSamples * tuningRatio);
+numTraining = floor(dNumSamples * trainingRatio);
+numTesting = dNumSamples - numTuning - numTraining;
 
 % Create tuning set
 % (This is done by selecting all columns, but only specific rows (e.g.
 % samples) to be a part of the tuning set. This selection is just like
 % working with a 2D matrix)
-vdTuningSetRange = 1:dTuningMax;
+vdTuningSetRange = 1:numTuning;
 oTuningSet = oLabelledFeatureValues(vdSelectionIndices(vdTuningSetRange), :);
 
 % Create training set
-vdTrainingSetRange = dTrainingMin:dTrainingMax;
+vdTrainingSetRange = numTuning+1:numTuning+numTraining;
 oTrainingSet = oLabelledFeatureValues(vdSelectionIndices(vdTrainingSetRange), :);
 
 % Create testing set
-vdTestingSetRange = dTestingMin:dNumSamples;
+vdTestingSetRange = numTuning+numTraining+1:dNumSamples;
 oTestingSet = oLabelledFeatureValues(vdSelectionIndices(vdTestingSetRange), :);
 
 end

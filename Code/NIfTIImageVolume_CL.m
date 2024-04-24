@@ -1,12 +1,4 @@
-function [voImageHandlers] = NIfTIImageVolume_CL()
-
-% Specify the path to lesion CSV file and images/segmentations
-sCsvFileName = "D:\Users\CentralLibraryGuest\Christina\Experiments\Resources\Lesion_Labels.csv";
-sImageBasePath = "D:\Users\CentralLibraryGuest\Christina\Image Database";
-
-% Specify number of patients to extract data from
-% OPTIONS: integer value or -1 to do all patients in csv file
-numPatients = 3;
+function [voImageHandlers] = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients)
 
 % Generate lesion data for each patient
 allPatients = ExtractPatientData(sCsvFileName);
