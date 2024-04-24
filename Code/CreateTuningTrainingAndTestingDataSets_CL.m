@@ -7,9 +7,10 @@ function [oTuningSet, oTrainingSet, oTestingSet] = CreateTuningTrainingAndTestin
 % oLabelledFeatureValues = CreateLabelledFeatureValuesFromDataMatrix_Demo();
 
 % Randomly select samples for each set
-rng(7); % reproducible
+rng(7); % reproducible randomization
 vdSelectionIndices = randperm(oLabelledFeatureValues.GetNumberOfSamples());
 
+%TO DO: make calculations dynamic and handle even/odd values
 dNumSamples = oLabelledFeatureValues.GetNumberOfSamples();
 dTuningMax = dNumSamples / 4;
 dTrainingMin = dTuningMax + 1;

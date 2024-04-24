@@ -1,0 +1,23 @@
+function [c1oT1Images, allPatients] = ExtractPatientImages(allPatients, numPatients, sImageBasePath)
+    c1oT1Images = {}; % empty 1 x dNumPatients vector
+    activePatients = [];
+
+    if numPatients == -1
+        numPatientsIndex = length(allPatients);
+    else
+        numPatientsIndex = numPatients;
+    end
+    
+    dT1ImagesVectorIndex = 1;
+    
+    % load-up data
+    for i=1:numPatientsIndex
+        if ~isempty(allPatients{i}.RawLesionData)
+            
+            c1oT1Images{dT1ImagesVectorIndex} = allPatients{i}.createT1Images(sImageBasePath);
+            allPatients{i} = allPatients{i}.setT1ImagesVectorIndex(dT1ImagesVectorIndex);
+            
+            dT1ImagesVectorIndex = dT1ImagesVectorIndex + 1;
+        end
+    end
+end

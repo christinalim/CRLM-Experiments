@@ -1,0 +1,32 @@
+function [allPatients] = ExtractPatientData(sCsvFileName, numPatients)
+
+    % Read the CSV file
+    data = readmatrix(sCsvFileName, 'Delimiter', ',');
+
+    % Extract patient IDs and lesion data
+    patientIndex = data(:, 1);
+    patientLesions = data(:, 2:end);
+
+    % Initialize a cell array to store instances of PatientInformation
+    allPatients = cell(size(patientLesions, 1), 1);
+    dNumPatients = length(allPatients);
+    
+    % Extract and initialize instances of PatientInformation
+    for i = 1:dNumPatients
+        % Remove trailing zeros
+        rawLesionData = patientLesions(i, :);
+        rawLesionData = rawLesionData(~isnan(rawLesionData));
+        % Create arrays for value 1 and value 2
+        lesionLabels = repmat(patientIndex(i), 1, numel(rawLesionData));
+        lesionIndexing = 1:numel(rawLesionData);
+        % Generate value 5 and value 6
+        patientID = sprintf('%03d', patientIndex(i));  % Formats patient ID with leading zeros
+        patientIDString = ['PT', patientID];  % Concatenates "PT" with formatted patient ID
+        % Store patient ID, extracted values, value 1 array, value 2 array, value 5, and value 6 as a tuple
+
+        newPatient = PatientInformation(patientIndex(i), rawLesionData, lesionLabels, lesionIndexing, patientID, patientIDString);
+
+        allPatients{i} = newPatient;
+    end
+
+end

@@ -1,6 +1,4 @@
-function [c1oT1Images] = ExtractPatientData()
-    % Specify the path to your CSV file
-    sCsvFileName = "/Users/clim/Developer/GitHub/CRLM-Experiments/Resources/Lesion_Labels.csv";
+function [allPatients] = ExtractPatientData(sCsvFileName)
 
     % Read the CSV file
     data = readmatrix(sCsvFileName, 'Delimiter', ',');
@@ -29,20 +27,6 @@ function [c1oT1Images] = ExtractPatientData()
         newPatient = PatientInformation(patientIndex(i), rawLesionData, lesionLabels, lesionIndexing, patientID, patientIDString);
 
         allPatients{i} = newPatient;
-    end
-    
-    c1oT1Images = cell(1, dNumPatients); % empty 1 x dNumPatients vector
-    sImageBasePath = "D:\Users\CentralLibraryGuest\Christina\Image Database";
-    
-    % for loop that iterates through all patients and runs the following
-    % code on the patient data if rawLesionData is not an empty array
-        
-    % load-up data
-    for i=1:dNumPatients
-        if ~isempty(rawLesionData{i})
-            c1oT1Images{i} = allPatients{i}.createT1Images(sImageBasePath);
-            allPatients{i}.setT1ImagesVectorIndex(i);
-        end
     end
 
 end

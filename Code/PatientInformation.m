@@ -24,7 +24,7 @@ classdef PatientInformation
 
             % load up T1 ROIs volume (NIfTI format) with corresponding
             % segmentations
-            T1Images{dPatientIndex} = NIfTIImageVolume(fullfile(sImageBasePath,obj.PatientIDString,"Volume",obj.PatientID +"_Volume.nii"), oT1ROIs);
+            T1Images = NIfTIImageVolume(fullfile(sImageBasePath,obj.PatientIDString,"Volume",obj.PatientID +"_Volume.nii"), oT1ROIs);
         end
            
         function obj = setT1ImagesVectorIndex(obj, voT1ImagesVectorIndex)

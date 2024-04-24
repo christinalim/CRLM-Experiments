@@ -1,5 +1,5 @@
 function [oTuningSet, oTrainingSet, oTestingSet, oGuessResult] = main_CL()
-%[voImageHandlers] = NIfTIImageVolume_CL();
+%voImageHandlers = NIfTIImageVolume_CL();
 
 %oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
 
