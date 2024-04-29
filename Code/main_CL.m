@@ -6,7 +6,7 @@ sImageBasePath = "D:\Users\CentralLibraryGuest\Christina\Image Database";
 
 % Specify number of patients to extract data from
 % OPTIONS: integer value or -1 to do all patients in csv file
-numPatients = -1;
+numPatients = 5;
 
 voImageHandlers = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients);
 

@@ -1,5 +1,4 @@
 function [voImageHandlers] = GenerateImageHandlers(voT1Images, activePatients, sFeatureSource)
-    voImageHandlers = cell(1, length(voT1Images)); 
 
     for i=1:length(voT1Images)
         % Patient2 is the first volume with 10 lesions
@@ -8,9 +7,10 @@ function [voImageHandlers] = GenerateImageHandlers(voT1Images, activePatients, s
         
         % BinaryClassificationSampleLabels( oSampleIds, array of labels , pos label, neg label)
         oSampleLabels = BinaryClassificationSampleLabels(oSampleIds, int32(activePatients{i}.RawLesionData), int32(1), int32(0));
-        voImageHandlers{i} = LabelledImageVolumeWithSampleIdsForFeatureExtraction(...
+        oImageVolumeWithSampleIdsPatient = LabelledImageVolumeWithSampleIdsForFeatureExtraction(...
             voT1Images(i), sFeatureSource,...
             oSampleLabels);
+        voImageHandlers(i) = oImageVolumeWithSampleIdsPatient;
     end
 
 end

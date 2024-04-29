@@ -18,6 +18,8 @@ function [c1oT1Images, activePatients] = ExtractPatientImages(allPatients, numPa
             c1oT1Images{dT1ImagesVectorIndex} = activePatients{dT1ImagesVectorIndex}.createT1Images(sImageBasePath);
             activePatients{dT1ImagesVectorIndex} = activePatients{dT1ImagesVectorIndex}.setT1ImagesVectorIndex(dT1ImagesVectorIndex);
             
+            disp("Extracted images for " + activePatients{dT1ImagesVectorIndex}.PatientIDString);
+
             dT1ImagesVectorIndex = dT1ImagesVectorIndex + 1;
         end
     end

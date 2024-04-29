@@ -1,4 +1,4 @@
-function [c1oT1Images, allPatients] = ExtractPatientImages(allPatients, numPatients, sImageBasePath)
+function [c1oT1Images, activePatients] = ExtractPatientImages(allPatients, numPatients, sImageBasePath)
     c1oT1Images = {}; % empty 1 x dNumPatients vector
     activePatients = [];
 
@@ -13,10 +13,13 @@ function [c1oT1Images, allPatients] = ExtractPatientImages(allPatients, numPatie
     % load-up data
     for i=1:numPatientsIndex
         if ~isempty(allPatients{i}.RawLesionData)
+            c = allPatients{i};
+
+            c1oT1Images{dT1ImagesVectorIndex} = activePatients{dT1ImagesVectorIndex}.createT1Images(sImageBasePath);
+            activePatients{dT1ImagesVectorIndex} = activePatients{dT1ImagesVectorIndex}.setT1ImagesVectorIndex(dT1ImagesVectorIndex);
             
-            c1oT1Images{dT1ImagesVectorIndex} = allPatients{i}.createT1Images(sImageBasePath);
-            allPatients{i} = allPatients{i}.setT1ImagesVectorIndex(dT1ImagesVectorIndex);
-            
+            disp("Extracted images for" + disp(inputString).Patient);
+
             dT1ImagesVectorIndex = dT1ImagesVectorIndex + 1;
         end
     end
