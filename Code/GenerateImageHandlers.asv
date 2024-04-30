@@ -1,15 +1,4 @@
 function [voImageHandlers] = GenerateImageHandlers(voT1Images, activePatients, sFeatureSource)
-    voImageHandlers = repmat(LabelledImageVolumeWithSampleIdsForFeatureExtraction(), 1, length(voT1Images));
-
-    % Define the size of the multi-dimensional array
-    arraySize = [1, 4]; % For example, a 3x4 array
-
-    % Define the desired data type
-    desiredDataType = 'LabelledImageVolumeWithSampleIdsForFeatureExtraction'; % For example, int16
-
-    % Initialize the array with zeros of the desired size and data type
-    multiArray = cast(zeros(arraySize), desiredDataType);
-
 
     for i=1:length(voT1Images)
         % Patient2 is the first volume with 10 lesions
@@ -22,6 +11,9 @@ function [voImageHandlers] = GenerateImageHandlers(voT1Images, activePatients, s
             voT1Images(i), sFeatureSource,...
             oSampleLabels);
         voImageHandlers(i) = oImageVolumeWithSampleIdsPatient;
+
+       disp("Generated ImageHandler for " + activePatients{i}.PatientIDString);
+
     end
 
 end

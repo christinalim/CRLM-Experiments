@@ -11,6 +11,9 @@ function [voImageHandlers] = GenerateImageHandlers(voT1Images, activePatients, s
             voT1Images(i), sFeatureSource,...
             oSampleLabels);
         voImageHandlers(i) = oImageVolumeWithSampleIdsPatient;
+
+       disp("Generated ImageHandler for " + activePatients{i}.PatientIDString);
+
     end
 
 end
