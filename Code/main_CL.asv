@@ -6,48 +6,48 @@ function [oTuningSet, oTrainingSet, oTestingSet, oGuessResult] = main_CL()
 % 
 % % Specify number of patients to extract data from
 % % OPTIONS: integer value or -1 to do all patients in csv file
-% numPatients = 12;
+% numPatients = 24;
 % 
 % voImageHandlers = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients);
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% DE-BUGGER CODE %%%%%%%%%%%%%%%%%
 
-% set-up for data load
-vsPatientCodes = ["PT013"];
-dNumPatients = length(vsPatientCodes);
-
-c1oT1Images = cell(1, dNumPatients);
-
-vsPatientID = ["013"];
-sImageBasePath = "D:\Users\CentralLibraryGuest\Christina\Image Database";
-
-% load-up data
-for dPatientIndex=1:dNumPatients
-    % load up T1 ROIs object (NIfTI format) ? segmentation
-    oT1ROIs = NIfTILabelMapRegionsOfInterest(fullfile(sImageBasePath,vsPatientCodes(dPatientIndex),"Segmentation",vsPatientID(dPatientIndex)+"_Segmentation.nii"));
-    
-    % load up T1 image volume object w/ ROI object supplied (NIfTI format)?
-    % T1 images
-    c1oT1Images{dPatientIndex} = NIfTIImageVolume(fullfile(sImageBasePath,vsPatientCodes(dPatientIndex),"Volume",vsPatientID(dPatientIndex)+"_Volume.nii"), oT1ROIs);
-    
-end
-
-% cast cell arrays into vector of image volume objects
-voT1Images = CellArrayUtils.CellArrayOfObjects2MatrixOfObjects(c1oT1Images);
-
-
-sFeatureSource = "MRI-T1";
-
-% Tester patient and lesions
-    % SampleIds (array of group ID #'s for each sample, array of subgroup ID #'s for each sample)
-oSampleIds = SampleIds(int32([1 1 1 1]), int32([1 2 3 4]));
-    % BinaryClassificationSampleLabels( oSampleIds, array of labels , pos label, neg label)
-oSampleLabels = BinaryClassificationSampleLabels(oSampleIds, int32([0 0 0 0]), int32(1), int32(0));
-oImageVolumeWithSampleIdsPatientTest = LabelledImageVolumeWithSampleIdsForFeatureExtraction(...
-    voT1Images(1), sFeatureSource,...
-    oSampleLabels);
-
-voImageHandlers = [oImageVolumeWithSampleIdsPatientTest];
+% % set-up for data load
+% vsPatientCodes = ["PT022"];
+% dNumPatients = length(vsPatientCodes);
+% 
+% c1oT1Images = cell(1, dNumPatients);
+% 
+% vsPatientID = ["022"];
+% sImageBasePath = "D:\Users\CentralLibraryGuest\Christina\Image Database";
+% 
+% % load-up data
+% for dPatientIndex=1:dNumPatients
+%     % load up T1 ROIs object (NIfTI format) ? segmentation
+%     oT1ROIs = NIfTILabelMapRegionsOfInterest(fullfile(sImageBasePath,vsPatientCodes(dPatientIndex),"Segmentation",vsPatientID(dPatientIndex)+"_Segmentation.nii"));
+%     
+%     % load up T1 image volume object w/ ROI object supplied (NIfTI format)?
+%     % T1 images
+%     c1oT1Images{dPatientIndex} = NIfTIImageVolume(fullfile(sImageBasePath,vsPatientCodes(dPatientIndex),"Volume",vsPatientID(dPatientIndex)+"_Volume.nii"), oT1ROIs);
+%     
+% end
+% 
+% % cast cell arrays into vector of image volume objects
+% voT1Images = CellArrayUtils.CellArrayOfObjects2MatrixOfObjects(c1oT1Images);
+% 
+% 
+% sFeatureSource = "MRI-T1";
+% 
+% % Tester patient and lesions
+%     % SampleIds (array of group ID #'s for each sample, array of subgroup ID #'s for each sample)
+% oSampleIds = SampleIds(int32([1 1 1 1 1 1 1 1]), int32([1 2 3 4 5 6 7 8]));
+%     % BinaryClassificationSampleLabels( oSampleIds, array of labels , pos label, neg label)
+% oSampleLabels = BinaryClassificationSampleLabels(oSampleIds, int32([1 0 0 0 0 0 1 1]), int32(1), int32(0));
+% oImageVolumeWithSampleIdsPatientTest = LabelledImageVolumeWithSampleIdsForFeatureExtraction(...
+%     voT1Images(1), sFeatureSource,...
+%     oSampleLabels);
+% 
+% voImageHandlers = [oImageVolumeWithSampleIdsPatientTest];
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
