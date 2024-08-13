@@ -15,8 +15,9 @@ voFeaturesToExtract1 = [F010001_Mean, F010003_Range, F010012_Entropy];
 voFeaturesToExtract2 = [FirstOrderFeature.GetAllFeatures3D(), ShapeAndSizeFeature.GetAllFeatures3D(), GLCMFeature.GetAllFeatures3D(), GLRLMFeature.GetAllFeatures3D()];
 
 % - All possible features can also be chosen:
-voFeaturesToExtract3 = Feature.GetAllFeatures2D();
+voFeaturesToExtract3 = Feature.GetAllFeatures3D();
 
+voFeaturesToExtract4 = [ ShapeAndSizeFeature.GetAllFeatures3D()];
 
 % Load the parameters from Excel file (to change parameters edit and save
 % the Excel file)
@@ -31,7 +32,7 @@ dMaxMemoryUsage_Gb = 2;
 sDescription = "A Feature Extraction Test of T1 Data";
 
 oFeatureValuesT1 = Feature.ExtractFeaturesForImageVolumeWithSampleIds(...
-    voImageVolumeHandlersT1, voFeaturesToExtract1,...
+    voImageVolumeHandlersT1, voFeaturesToExtract4,...
     oFeatureExtractionParameters,...
     sDescription,...
     dMaxMemoryUsage_Gb);

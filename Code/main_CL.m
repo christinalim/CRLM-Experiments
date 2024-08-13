@@ -1,16 +1,6 @@
 function [oTuningSet, oTrainingSet, oTestingSet, oGuessResult] = main_CL()
 
-% Specify the path to lesion CSV file and images/segmentations
-sCsvFileName = "D:\Users\CentralLibraryGuest\Christina\Experiments\Resources\Lesion_Labels.csv";
-sImageBasePath = "D:\Users\CentralLibraryGuest\Christina\Image Database";
-
-% Specify number of patients to extract data from
-% OPTIONS: integer value or -1 to do all patients in csv file
-numPatients = 24;
-
-voImageHandlers = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients);
-
-%%%%%%%%%%%%% DE-BUGGER CODE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% GENERATE SINGLE IMAGE HANDLERS (DE-BUGGING) %%%%%%%%%%%%%%%%%
 
 % % set-up for data load
 % vsPatientCodes = ["PT022"];
@@ -29,7 +19,12 @@ voImageHandlers = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients)
 %     % load up T1 image volume object w/ ROI object supplied (NIfTI format)?
 %     % T1 images
 %     c1oT1Images{dPatientIndex} = NIfTIImageVolume(fullfile(sImageBasePath,vsPatientCodes(dPatientIndex),"Volume",vsPatientID(dPatientIndex)+"_Volume.nii"), oT1ROIs);
-%     
+%     dMin = c1oT1Images{dPatientIndex}.GetImageDataMinimumValue();
+%     dMax = c1oT1Images{dPatientIndex}.GetImageDataMaximumValue();
+%     if dMin >= -1 && dMax <= 1
+%         error("Cannot cast images to integer values because all values are between -1 and 1. See Patient:" + dPatientIndex);
+%     end
+%     c1oT1Images{dPatientIndex}.CastImageDataToType('int16');
 % end
 % 
 % % cast cell arrays into vector of image volume objects
@@ -50,11 +45,31 @@ voImageHandlers = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients)
 % voImageHandlers = [oImageVolumeWithSampleIdsPatientTest];
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% GENERATE MULTIPLE NEW IMAGE HANDLERS %%%%%%%%%%%%%%%%
+
+% % Specify the path to lesion CSV file and images/segmentations
+% sCsvFileName = "D:\Users\CentralLibraryGuest\Christina\Experiments\Resources\Lesion_Labels.csv";
+% sImageBasePath = "D:\Users\CentralLibraryGuest\Christina\Image Database";
+% 
+% % Specify number of patients to extract data from
+% % OPTIONS: integer value OR -1 to do all patients in csv file
+% numPatients = 12;
+% 
+% voImageHandlers = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients);
+  
+%%%%%%%%%%%%% LOAD SAVED IMAGE HANDLERS %%%%%%%%%%%%%%%%%
+
+% voImageHandlers = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\ImageHandlers_24_GLCM.mat", 'voImageHandlers_24_GLCM');
+% % for Shape and Size features - problems with images 15, 16, 19, 20, 21
+% voImageHandlers = horzcat(voImageHandlers(1:14), voImageHandlers(17:18), voImageHandlers(21));
+
+voImageHandlers = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\ImageHandlers_24_GLCM.mat", 'voImageHandlers_24_GLCM');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
-
-% oLabelledFeatureValues = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\Features", 'oLabelledFeatureValues');
+% oLabelledFeatureValues = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\LabelledFeatureValues_12_FTE2.mat", 'LabelledFeatureValues_12_FTE2');
 
 tuningRatio = 0.25;
 trainingRatio = 0.5;
@@ -79,5 +94,7 @@ oTrainedClassifier = oOptimizedClassifier.Train(oTrainingSet);
 oGuessResult = Guess(oTrainedClassifier, oTestingSet);
 
 ErrorMetricsCalculator_CL(oGuessResult);
+
+%FeatureSelector_CL(oTuningSet, oTrainingSet, oTestingSet, oOptimizedClassifier)
 
 end

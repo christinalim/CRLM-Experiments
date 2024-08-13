@@ -25,6 +25,12 @@ classdef PatientInformation
             % load up T1 ROIs volume (NIfTI format) with corresponding
             % segmentations
             T1Images = NIfTIImageVolume(fullfile(sImageBasePath,obj.PatientIDString,"Volume",obj.PatientID +"_Volume.nii"), oT1ROIs);
+            dMin = T1Images.GetImageDataMinimumValue();
+            dMax = T1Images.GetImageDataMaximumValue();
+            if dMin >= -1 && dMax <= 1
+                error("Cannot cast images to integer values because all values are between -1 and 1. See Patient: " + sImageBasePath);
+            end
+            T1Images.CastImageDataToType('int16');
         end
            
         function obj = setT1ImagesVectorIndex(obj, voT1ImagesVectorIndex)
