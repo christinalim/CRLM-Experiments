@@ -26,6 +26,9 @@ oClinicalDataSet = [];
 
 %%%%%%% Load in your Feature Values Table here as 'oRadiomicDataSet' %%%%%%%%
 
+oRadiomicDataSet = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\LabelledFeatureValues_24.mat", 'oLabelledFeatureValues');
+oReferenceDataSet = oRadiomicDataSet;
+
 oOFN = load('OFN-001-001.mat');
 oOFN = oOFN.oObjectiveFunction;
 oFS = load('FS-001-001.mat');
@@ -40,7 +43,7 @@ dNumGroupsInTrainingSetMultiplier = 1;
 dNumGroupsInTrainingSet = round(dNumGroupsInTrainingSetMultiplier*oReferenceDataSet.GetNumberOfGroups());
 dNumGroupsInTestingSet = []; % default behaviour
 
-dNumBootstrapReps = 250;
+dNumBootstrapReps = 100;
 bAtLeastOneOfEachLabelPerPartition = true;
 
 vstBootstrappedPartitions = BootstrappingPartition.CreatePartitions(oReferenceDataSet, dNumBootstrapReps, dNumGroupsInTrainingSet, dNumGroupsInTestingSet, bAtLeastOneOfEachLabelPerPartition);
@@ -122,8 +125,9 @@ for dBootstrapRepIndex=1:dNumBootstrapReps+1
     % Perform hyper-parameter optimization           
     oHyperParameterOptimizer = oHPO.CreateHyperParameterOptimizer(oOFN, oTuningSet);
     oClassifier = oMDL.CreateModel(oHyperParameterOptimizer, 'JournalingOn', false);
+    %oClassifier = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\oClassifier_24",'oClassifier');
     dHyperParameterOptimizationAUC = 1 - oClassifier.GetHyperParameterOptimizer().GetObjectiveFunctionValueAtOptimalHyperParameters();
-    
+
     % Train and evaluate classifier
     oRNG = RandomNumberGenerator();
     
@@ -136,7 +140,7 @@ for dBootstrapRepIndex=1:dNumBootstrapReps+1
     
 %     oRNG.PerLoopIndexTeardown;
 %     oRNG.PostLoopTeardown;
-    
+
     % Save artifacts to disk
     FileIOUtils.SaveMatFile(...
         fullfile(Experiment.GetResultsDirectory(), chFilename),...
@@ -219,9 +223,9 @@ Experiment.AddToReport(ReportUtils.CreateParagraph("Mean: " + string(mean(vdAUC_
 Experiment.AddToReport(ReportUtils.CreateParagraph("Median: " + string(median(vdAUC_0Point632PlusPerBootstrap))));
 Experiment.AddToReport(ReportUtils.CreateParagraph("St. Dev.: " + string(std(vdAUC_0Point632PlusPerBootstrap))));
 
-Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('AUC LPOB: ', ''));
-Experiment.AddToReport(ReportUtils.CreateParagraph("Mean: " + string(dLPOBAUC)));
-Experiment.AddToReport(ReportUtils.CreateParagraph("St. Dev.: " + string(dLPOBAUCStDev)));
+% Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('AUC LPOB: ', ''));
+% Experiment.AddToReport(ReportUtils.CreateParagraph("Mean: " + string(dLPOBAUC)));
+% Experiment.AddToReport(ReportUtils.CreateParagraph("St. Dev.: " + string(dLPOBAUCStDev)));
 
 hFig = figure();
 histogram(vdAUCPerBootstrap, 'BinEdges', 0:0.1:1);

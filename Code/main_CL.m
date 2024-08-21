@@ -53,23 +53,19 @@ function [oTuningSet, oTrainingSet, oTestingSet, oGuessResult] = main_CL()
 % 
 % % Specify number of patients to extract data from
 % % OPTIONS: integer value OR -1 to do all patients in csv file
-% numPatients = 12;
+% numPatients = 24;
 % 
 % voImageHandlers = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients);
-  
+%   
 %%%%%%%%%%%%% LOAD SAVED IMAGE HANDLERS %%%%%%%%%%%%%%%%%
 
-% voImageHandlers = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\ImageHandlers_24_GLCM.mat", 'voImageHandlers_24_GLCM');
-% % for Shape and Size features - problems with images 15, 16, 19, 20, 21
-% voImageHandlers = horzcat(voImageHandlers(1:14), voImageHandlers(17:18), voImageHandlers(21));
-
-voImageHandlers = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\ImageHandlers_24_GLCM.mat", 'voImageHandlers_24_GLCM');
+voImageHandlers = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\ImageHandler_24.mat", 'voImageHandlers');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
-% oLabelledFeatureValues = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\LabelledFeatureValues_12_FTE2.mat", 'LabelledFeatureValues_12_FTE2');
+% oLabelledFeatureValues = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\LabelledFeatureValues_24.mat", 'oLabelledFeatureValues');
 
 tuningRatio = 0.25;
 trainingRatio = 0.5;
