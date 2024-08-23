@@ -26,7 +26,7 @@ oClinicalDataSet = [];
 
 %%%%%%% Load in your Feature Values Table here as 'oRadiomicDataSet' %%%%%%%%
 
-oRadiomicDataSet = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\LabelledFeatureValues_24.mat", 'oLabelledFeatureValues');
+oRadiomicDataSet = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\LabelledFeatureValues_24.mat", 'oLabelledFeatureValues');
 oReferenceDataSet = oRadiomicDataSet;
 
 oOFN = load('OFN-001-001.mat');
@@ -43,7 +43,7 @@ dNumGroupsInTrainingSetMultiplier = 1;
 dNumGroupsInTrainingSet = round(dNumGroupsInTrainingSetMultiplier*oReferenceDataSet.GetNumberOfGroups());
 dNumGroupsInTestingSet = []; % default behaviour
 
-dNumBootstrapReps = 100;
+dNumBootstrapReps = 20;
 bAtLeastOneOfEachLabelPerPartition = true;
 
 vstBootstrappedPartitions = BootstrappingPartition.CreatePartitions(oReferenceDataSet, dNumBootstrapReps, dNumGroupsInTrainingSet, dNumGroupsInTestingSet, bAtLeastOneOfEachLabelPerPartition);
