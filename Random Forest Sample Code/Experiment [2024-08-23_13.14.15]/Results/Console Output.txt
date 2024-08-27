@@ -1,0 +1,46 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Loading Experiment Assets
+  Start Time: Aug 23, 2024 13:14:20
+
+****************************************************************************************************
+
+<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment\main.m',47,1)">47  </a>bAtLeastOneOfEachLabelPerPartition = true;
+if system_dependent('IsDebugMode')==1, dbcont; end
+
+
+****************************************************************************************************
+
+Experiment Section: Bootstrapped Iterations
+  Start Time: Aug 23, 2024 13:14:25
+
+****************************************************************************************************
+
+
+
+****************************************************************************************************
+
+Experiment Section: Performance
+  Start Time: Aug 23, 2024 21:45:46
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+
+Experiment Complete:
+             Start: Aug 23, 2024 13:14:15
+               End: Aug 23, 2024 21:46:45
+      Time Elapsed: 08:32:30
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-23_13.14.15]

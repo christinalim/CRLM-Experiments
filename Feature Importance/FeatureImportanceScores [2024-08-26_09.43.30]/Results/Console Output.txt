@@ -1,0 +1,51 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Progression
+  Start Time: Aug 26, 2024 09:43:35
+
+****************************************************************************************************
+
+
+sResultsDirectory =
+
+    'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-23_13.14.15]\Results'
+
+
+
+
+****************************************************************************************************
+
+
+
+Experiment Failed:
+             Start: Aug 26, 2024 09:43:30
+          Error At: Aug 26, 2024 09:43:43
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\FeatureImportanceScores [2024-08-26_09.43.30]
+
+Experiment Error:
+
+Error using load
+Unable to read file 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-23_13.14.15]\Results\02 Bootstrapped Iterations\Iteration 001 Results.mat'. No such file or directory.
+
+Error in FileIOUtils.LoadMatFile (line 78)
+                stLoadedData = load(chPath, c1chVarNames{:});
+
+Error in main (line 37)
+        [vbRadiomicFeatureMask, vdFeatureImportanceScores] = FileIOUtils.LoadMatFile(...
+
+Error in run (line 91)
+evalin('caller', strcat(script, ';'));
+
+Error in Experiment/RunMain (line 1824)
+                run('main.m');
+
+Error in Experiment.Run (line 265)
+            [sCompletedExperimentPath, bErrored] = oExperiment.RunMain();

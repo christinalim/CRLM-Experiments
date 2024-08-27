@@ -21,7 +21,7 @@ voFeaturesToExtract4 = [ ShapeAndSizeFeature.GetAllFeatures3D()];
 
 % Load the parameters from Excel file (to change parameters edit and save
 % the Excel file)
-oFeatureExtractionParameters = FeatureExtractionParameters(fullfile('FeatureExtraction','Demos','ExtractFeatures_Demo.xlsx'));
+oFeatureExtractionParameters = FeatureExtractionParameters('D:\Users\CentralLibraryGuest\Christina\Experiments\Resources\ExtractFeatures_CL.xlsx');
 
 
 % Set the target max memory usage

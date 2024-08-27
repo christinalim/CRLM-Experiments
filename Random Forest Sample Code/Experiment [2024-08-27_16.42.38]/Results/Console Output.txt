@@ -1,0 +1,310 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Loading Experiment Assets
+  Start Time: Aug 27, 2024 16:42:46
+
+****************************************************************************************************
+
+<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment\main.m',47,1)">47  </a>bAtLeastOneOfEachLabelPerPartition = true;
+if system_dependent('IsDebugMode')==1, dbcont; end
+
+
+****************************************************************************************************
+
+Experiment Section: Bootstrapped Iterations
+  Start Time: Aug 27, 2024 16:42:56
+
+****************************************************************************************************
+
+if system_dependent('IsDebugMode')==1, dbstep; end
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 3).
+Configuring parpool for experiment...
+CentralLibrary: Adding code paths for each worker
+  Worker 1: BAINESWS02 (PID 12644) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]]
+  Worker 2: BAINESWS02 (PID 6896) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]]
+  Worker 3: BAINESWS02 (PID 7572) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]]
+Parpool successfully configured for experiment
+<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment\main.m',64,1)">64  </a>parfor dBootstrapRepIndex=1:dNumBootstrapReps+1   
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbquit; end
+tSettings.c1xVarValue{6} = 'clim54@uwo.ca';
+tSettings.c1xVarValue{3} = 'hooraynewcode@gmail.com';
+tSettings.c1xVarValue{4} = 'http://smtp.gmail.com/';
+save('settings.mat')
+save('settings.mat')
+load('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment\settings.mat')
+load('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment\settings.mat', 'tSettings')
+tSettings.c1xVarValue{6} = 'clim54@uwo.ca';
+tSettings.c1xVarValue{3} = 'hooraynewcode@gmail.com';
+tSettings.c1xVarValue{4} = 'smtp.gmail.com';
+load('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment\settings.mat')
+load('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment\settings.mat', 'tSettings')
+tSettings.c1xVarValue{6} = 'clim54@uwo.ca';
+tSettings.c1xVarValue{4} = 'smtp.gmail.com';
+tSettings.c1xVarValue{3} = 'hooraynewcode@gmail.com';
+FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment\settings.mat','tSettings', tSettings);
+load('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment\settings.mat', 'tSettings')
+IdleTimeout has been reached.
+Parallel pool using the 'local' profile is shutting down.
+FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\ImageHandler_24.mat", 'voImageHandlers');
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('load')" style="font-weight:bold">load</a>
+Unable to read file 'D:\Users\CentralLibraryGuest\Christina\Variables\ImageHandler_24.mat'. No such file or directory.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('FileIOUtils.LoadMatFile', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\FileIOUtils.m', 78)" style="font-weight:bold">FileIOUtils.LoadMatFile</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\FileIOUtils.m',78,0)">line 78</a>)
+                stLoadedData = load(chPath, c1chVarNames{:});
+} 
+FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandler_24.mat", 'voImageHandlers');
+voImageHandlers = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandler_24.mat", 'voImageHandlers');
+oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
+{Error: <a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m',25,147)">File: ExtractFeatures_CL.m Line: 25 Column: 147
+</a>Invalid expression. When calling a function or indexing a variable, use parentheses. Otherwise, check for mismatched delimiters.
+} 
+opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m',25,147)
+oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
+Starting parallel pool (parpool) using the 'local' profile ...
+<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\+matlab\+exception\JavaException.m',31,1)">31  </a>          if (isa(excObj, 'com.mathworks.util.MatlabIdentified'))
+if system_dependent('IsDebugMode')==1, dbquit; end
+
+main_CL
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 3).
+Configuring parpool for experiment...
+CentralLibrary: Adding code paths for each worker
+  Worker 1: BAINESWS02 (PID 6980) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]]
+  Worker 2: BAINESWS02 (PID 11364) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]]
+  Worker 3: BAINESWS02 (PID 11300) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]]
+Parpool successfully configured for experiment
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RandomNumberGenerator/PreLoopSetup', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m', 163)" style="font-weight:bold">RandomNumberGenerator/PreLoopSetup</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m',163,0)">line 163</a>)
+.PreLoopSetup cannot be called again without either a .PostLoopTeardown or .PerLoopIndexCall occurring first.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExperimentLoopIterationManager', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m', 127)" style="font-weight:bold">ExperimentLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m',127,0)">line 127</a>)
+            obj.oRandomNumberGenerator.PreLoopSetup(dNumberOfIterations);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.GetLoopIterationManager', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment\Experiment.m', 911)" style="font-weight:bold">Experiment.GetLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment\Experiment.m',911,0)">line 911</a>)
+                oManager = ExperimentLoopIterationManager(oParent, dNumIterations, NameValueArgs.AvoidIterationRecomputationIfResumed);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 525)" style="font-weight:bold">Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',525,0)">line 525</a>)
+            oLoopManager = Experiment.GetLoopIterationManager(dNumImageVolumeWithSampleIds);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature.ExtractFeaturesForImageVolumeWithSampleIds', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 219)" style="font-weight:bold">Feature.ExtractFeaturesForImageVolumeWithSampleIds</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',219,0)">line 219</a>)
+            oFeatureValues = Feature.ExtractFeaturesForImageVolumeWithSampleIds_Generalized(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExtractFeatures_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m', 35)" style="font-weight:bold">ExtractFeatures_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m',35,0)">line 35</a>)
+oFeatureValuesT1 = Feature.ExtractFeaturesForImageVolumeWithSampleIds(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m', 67)" style="font-weight:bold">main_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m',67,0)">line 67</a>)
+oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
+} 
+opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m',163,0)
+opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment\Experiment.m',911,0)
+main_CL
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RandomNumberGenerator/PreLoopSetup', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m', 163)" style="font-weight:bold">RandomNumberGenerator/PreLoopSetup</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m',163,0)">line 163</a>)
+.PreLoopSetup cannot be called again without either a .PostLoopTeardown or .PerLoopIndexCall occurring first.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExperimentLoopIterationManager', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m', 127)" style="font-weight:bold">ExperimentLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m',127,0)">line 127</a>)
+            obj.oRandomNumberGenerator.PreLoopSetup(dNumberOfIterations);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.GetLoopIterationManager', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m', 911)" style="font-weight:bold">Experiment.GetLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',911,0)">line 911</a>)
+                oManager = ExperimentLoopIterationManager(oParent, dNumIterations, NameValueArgs.AvoidIterationRecomputationIfResumed);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 525)" style="font-weight:bold">Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',525,0)">line 525</a>)
+            oLoopManager = Experiment.GetLoopIterationManager(dNumImageVolumeWithSampleIds);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature.ExtractFeaturesForImageVolumeWithSampleIds', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 219)" style="font-weight:bold">Feature.ExtractFeaturesForImageVolumeWithSampleIds</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',219,0)">line 219</a>)
+            oFeatureValues = Feature.ExtractFeaturesForImageVolumeWithSampleIds_Generalized(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExtractFeatures_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m', 35)" style="font-weight:bold">ExtractFeatures_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m',35,0)">line 35</a>)
+oFeatureValuesT1 = Feature.ExtractFeaturesForImageVolumeWithSampleIds(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m', 67)" style="font-weight:bold">main_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m',67,0)">line 67</a>)
+oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
+} 
+opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',911,0)
+main_CL
+if system_dependent('IsDebugMode')==1, dbquit; end
+main_CL
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RandomNumberGenerator/PreLoopSetup', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m', 163)" style="font-weight:bold">RandomNumberGenerator/PreLoopSetup</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m',163,0)">line 163</a>)
+.PreLoopSetup cannot be called again without either a .PostLoopTeardown or .PerLoopIndexCall occurring first.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExperimentLoopIterationManager', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m', 127)" style="font-weight:bold">ExperimentLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m',127,0)">line 127</a>)
+            obj.oRandomNumberGenerator.PreLoopSetup(dNumberOfIterations);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.GetLoopIterationManager', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m', 912)" style="font-weight:bold">Experiment.GetLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',912,0)">line 912</a>)
+                oManager = ExperimentLoopIterationManager(oParent, dNumIterations, NameValueArgs.AvoidIterationRecomputationIfResumed);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 525)" style="font-weight:bold">Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',525,0)">line 525</a>)
+            oLoopManager = Experiment.GetLoopIterationManager(dNumImageVolumeWithSampleIds);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature.ExtractFeaturesForImageVolumeWithSampleIds', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 219)" style="font-weight:bold">Feature.ExtractFeaturesForImageVolumeWithSampleIds</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',219,0)">line 219</a>)
+            oFeatureValues = Feature.ExtractFeaturesForImageVolumeWithSampleIds_Generalized(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExtractFeatures_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m', 35)" style="font-weight:bold">ExtractFeatures_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m',35,0)">line 35</a>)
+oFeatureValuesT1 = Feature.ExtractFeaturesForImageVolumeWithSampleIds(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m', 67)" style="font-weight:bold">main_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m',67,0)">line 67</a>)
+oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
+} 
+opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',912,0)
+main_CL
+oManager.PostLoopTeardown();
+{Unable to resolve the name oManager.PostLoopTeardown.
+} 
+opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m',163,0)
+if system_dependent('IsDebugMode')==1, dbquit; end
+main_CL
+if system_dependent('IsDebugMode')==1, dbcont; end
+oManager.PostLoopTeardown();
+{Unable to resolve the name oManager.PostLoopTeardown.
+} 
+opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',912,0)
+if system_dependent('IsDebugMode')==1, dbquit; end
+main_CL
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RandomNumberGenerator/PreLoopSetup', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m', 163)" style="font-weight:bold">RandomNumberGenerator/PreLoopSetup</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m',163,0)">line 163</a>)
+.PreLoopSetup cannot be called again without either a .PostLoopTeardown or .PerLoopIndexCall occurring first.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExperimentLoopIterationManager', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m', 127)" style="font-weight:bold">ExperimentLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m',127,0)">line 127</a>)
+            obj.oRandomNumberGenerator.PreLoopSetup(dNumberOfIterations);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.GetLoopIterationManager', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m', 912)" style="font-weight:bold">Experiment.GetLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',912,0)">line 912</a>)
+                oManager = ExperimentLoopIterationManager(oParent, dNumIterations, NameValueArgs.AvoidIterationRecomputationIfResumed);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 525)" style="font-weight:bold">Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',525,0)">line 525</a>)
+            oLoopManager = Experiment.GetLoopIterationManager(dNumImageVolumeWithSampleIds);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature.ExtractFeaturesForImageVolumeWithSampleIds', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 219)" style="font-weight:bold">Feature.ExtractFeaturesForImageVolumeWithSampleIds</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',219,0)">line 219</a>)
+            oFeatureValues = Feature.ExtractFeaturesForImageVolumeWithSampleIds_Generalized(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExtractFeatures_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m', 35)" style="font-weight:bold">ExtractFeatures_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m',35,0)">line 35</a>)
+oFeatureValuesT1 = Feature.ExtractFeaturesForImageVolumeWithSampleIds(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m', 67)" style="font-weight:bold">main_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m',67,0)">line 67</a>)
+oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
+} 
+opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m',163,0)
+opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m',163,0)
+opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',912,0)
+main_CL
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RandomNumberGenerator/PreLoopSetup', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m', 163)" style="font-weight:bold">RandomNumberGenerator/PreLoopSetup</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m',163,0)">line 163</a>)
+.PreLoopSetup cannot be called again without either a .PostLoopTeardown or .PerLoopIndexCall occurring first.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExperimentLoopIterationManager', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m', 127)" style="font-weight:bold">ExperimentLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m',127,0)">line 127</a>)
+            obj.oRandomNumberGenerator.PreLoopSetup(dNumberOfIterations);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.GetLoopIterationManager', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m', 911)" style="font-weight:bold">Experiment.GetLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',911,0)">line 911</a>)
+                oManager = ExperimentLoopIterationManager(oParent, dNumIterations, NameValueArgs.AvoidIterationRecomputationIfResumed);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 525)" style="font-weight:bold">Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',525,0)">line 525</a>)
+            oLoopManager = Experiment.GetLoopIterationManager(dNumImageVolumeWithSampleIds);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature.ExtractFeaturesForImageVolumeWithSampleIds', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 219)" style="font-weight:bold">Feature.ExtractFeaturesForImageVolumeWithSampleIds</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',219,0)">line 219</a>)
+            oFeatureValues = Feature.ExtractFeaturesForImageVolumeWithSampleIds_Generalized(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExtractFeatures_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m', 35)" style="font-weight:bold">ExtractFeatures_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m',35,0)">line 35</a>)
+oFeatureValuesT1 = Feature.ExtractFeaturesForImageVolumeWithSampleIds(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m', 67)" style="font-weight:bold">main_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m',67,0)">line 67</a>)
+oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
+} 
+opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',911,0)
+main_CL
+oManager.PostLoopTeardown();
+{Unable to resolve the name oManager.PostLoopTeardown.
+} 
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+if system_dependent('IsDebugMode')==1, dbstep; end
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RandomNumberGenerator/PreLoopSetup', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m', 163)" style="font-weight:bold">RandomNumberGenerator/PreLoopSetup</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m',163,0)">line 163</a>)
+.PreLoopSetup cannot be called again without either a .PostLoopTeardown or .PerLoopIndexCall occurring first.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExperimentLoopIterationManager', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m', 127)" style="font-weight:bold">ExperimentLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m',127,0)">line 127</a>)
+            obj.oRandomNumberGenerator.PreLoopSetup(dNumberOfIterations);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.GetLoopIterationManager', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m', 911)" style="font-weight:bold">Experiment.GetLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',911,0)">line 911</a>)
+                oManager = ExperimentLoopIterationManager(oParent, dNumIterations, NameValueArgs.AvoidIterationRecomputationIfResumed);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 525)" style="font-weight:bold">Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',525,0)">line 525</a>)
+            oLoopManager = Experiment.GetLoopIterationManager(dNumImageVolumeWithSampleIds);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature.ExtractFeaturesForImageVolumeWithSampleIds', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 219)" style="font-weight:bold">Feature.ExtractFeaturesForImageVolumeWithSampleIds</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',219,0)">line 219</a>)
+            oFeatureValues = Feature.ExtractFeaturesForImageVolumeWithSampleIds_Generalized(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExtractFeatures_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m', 35)" style="font-weight:bold">ExtractFeatures_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m',35,0)">line 35</a>)
+oFeatureValuesT1 = Feature.ExtractFeaturesForImageVolumeWithSampleIds(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m', 67)" style="font-weight:bold">main_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m',67,0)">line 67</a>)
+oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
+} 
+main_CL
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbstep in; end
+if system_dependent('IsDebugMode')==1, dbstep out; end
+if system_dependent('IsDebugMode')==1, dbstep out; end
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('RandomNumberGenerator/PreLoopSetup', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m', 163)" style="font-weight:bold">RandomNumberGenerator/PreLoopSetup</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m',163,0)">line 163</a>)
+.PreLoopSetup cannot be called again without either a .PostLoopTeardown or .PerLoopIndexCall occurring first.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExperimentLoopIterationManager', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m', 127)" style="font-weight:bold">ExperimentLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m',127,0)">line 127</a>)
+            obj.oRandomNumberGenerator.PreLoopSetup(dNumberOfIterations);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.GetLoopIterationManager', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m', 911)" style="font-weight:bold">Experiment.GetLoopIterationManager</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',911,0)">line 911</a>)
+                oManager = ExperimentLoopIterationManager(oParent, dNumIterations, NameValueArgs.AvoidIterationRecomputationIfResumed);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 525)" style="font-weight:bold">Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',525,0)">line 525</a>)
+            oLoopManager = Experiment.GetLoopIterationManager(dNumImageVolumeWithSampleIds);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature.ExtractFeaturesForImageVolumeWithSampleIds', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 219)" style="font-weight:bold">Feature.ExtractFeaturesForImageVolumeWithSampleIds</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',219,0)">line 219</a>)
+            oFeatureValues = Feature.ExtractFeaturesForImageVolumeWithSampleIds_Generalized(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExtractFeatures_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m', 35)" style="font-weight:bold">ExtractFeatures_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m',35,0)">line 35</a>)
+oFeatureValuesT1 = Feature.ExtractFeaturesForImageVolumeWithSampleIds(...
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m', 67)" style="font-weight:bold">main_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m',67,0)">line 67</a>)
+oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
+} 
+opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\RandomNumberGenerator.m',163,0)
+opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\Utilities\ExperimentUtilities\ExperimentLoopIterationManager.m',127,0)
+main_CL
+if system_dependent('IsDebugMode')==1, dbcont; end
+obj.oRandomNumberGenerator.PostLoopTeardown;
+if system_dependent('IsDebugMode')==1, dbcont; end
+[Warning: 4 features were found to have at least one sample with an invalid value (NaN). These features have been removed from the
+produced feature values object.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature/CreateFeatureValuesFromExtractionResults', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 475)" style="font-weight:bold">Feature/CreateFeatureValuesFromExtractionResults</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',475,0)">line 475</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 553)" style="font-weight:bold">Feature/ExtractFeaturesForImageVolumeWithSampleIds_Generalized</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',553,0)">line 553</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Feature.ExtractFeaturesForImageVolumeWithSampleIds', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m', 219)" style="font-weight:bold">Feature.ExtractFeaturesForImageVolumeWithSampleIds</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-08-27_16.42.38]\Code\CentralLibrary-2019b-dev\FeatureExtraction\Feature\Feature.m',219,0)">line 219</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ExtractFeatures_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m', 35)" style="font-weight:bold">ExtractFeatures_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\ExtractFeatures_CL.m',35,0)">line 35</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main_CL', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m', 67)" style="font-weight:bold">main_CL</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m',67,0)">line 67</a>)] 
+<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Code\main_CL.m',69,1)">69  </a>FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\LabelledFeatureValues_24.mat','oLabelledFeatureValues', oLabelledFeatureValues);
+IdleTimeout has been reached.
+Parallel pool using the 'local' profile is shutting down.
+if system_dependent('IsDebugMode')==1, dbcont; end
+load('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Parameters\MDL\Parameters\Model Hyper Parameters.mat')
+tHyperParameters.c1xOptimizationDomain{1} = [100,1000];
+load('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Parameters\MDL\Parameters\Model Hyper Parameters.mat', 'tHyperParameters')
+tHyperParameters.c1xOptimizationDomain{1} = [100,1000];
+save('tHyperParameters')
+load('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Parameters\MDL\Parameters\Model Hyper Parameters.mat', 'tHyperParameters')
+tHyperParameters.c1xOptimizationDomain{1} = [100,1000];
+save('Model Hyper Parameters.mat', 'tHyperParameters')
+load('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Parameters\MDL\Parameters\Model Hyper Parameters.mat')
+load('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Parameters\MDL\Parameters\Model Hyper Parameters.mat', 'tHyperParameters')
+tHyperParameters.c1xOptimizationDomain{1} = [100,1000];
+FileIOUtils.SaveMatFile('D:\Users\CentralLibrary

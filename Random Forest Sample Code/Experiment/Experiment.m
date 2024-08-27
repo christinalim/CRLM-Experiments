@@ -908,6 +908,7 @@ classdef Experiment < handle
                     end
                 end
                 
+                % Call 'oManager.PostLoopTeardown();'
                 oManager = ExperimentLoopIterationManager(oParent, dNumIterations, NameValueArgs.AvoidIterationRecomputationIfResumed);
                 
                 if NameValueArgs.AvoidIterationRecomputationIfResumed

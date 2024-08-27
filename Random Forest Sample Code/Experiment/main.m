@@ -59,14 +59,14 @@ Experiment.EndCurrentSection();
 % Compute bootstrap iterations
 Experiment.StartNewSection('Bootstrapped Iterations');
 
-%oManager = Experiment.GetLoopIterationManager(dNumBootstrapReps+1, 'AvoidIterationRecomputationIfResumed', true); % "+ 1" for the train and test on full data set iteration needed for AUC_0.632
+oManager = Experiment.GetLoopIterationManager(dNumBootstrapReps+1, 'AvoidIterationRecomputationIfResumed', true); % "+ 1" for the train and test on full data set iteration needed for AUC_0.632
 
-for dBootstrapRepIndex=1:dNumBootstrapReps+1   
-%     if oManager.IterationWasPreviouslyComputed(dBootstrapRepIndex)
-%         continue; % don't recomputed it!
-%     end
-%     
-%     oManager.PerLoopIndexSetup(dBootstrapRepIndex);
+parfor dBootstrapRepIndex=1:dNumBootstrapReps+1   
+    if oManager.IterationWasPreviouslyComputed(dBootstrapRepIndex)
+        continue; % don't recomputed it!
+    end
+    
+    oManager.PerLoopIndexSetup(dBootstrapRepIndex);
     
     if dBootstrapRepIndex == dNumBootstrapReps+1 % train and test on all the data
         chFilename = 'Train and Test On All Data Results.mat';        
@@ -154,10 +154,10 @@ for dBootstrapRepIndex=1:dNumBootstrapReps+1
         '-v7', '-nocompression');          
     
     % par manager clean-up
-%     oManager.PerLoopIndexTeardown();
+    oManager.PerLoopIndexTeardown();
 end
 
-% oManager.PostLoopTeardown();
+oManager.PostLoopTeardown();
 
 % combine all guess results into a single file
 
@@ -200,6 +200,8 @@ dAUCTrainAndTestOnAllSamples = ErrorMetricsCalculator.CalculateAUC(oTrainAndTest
 
 [dLPOBAUC, dLPOBAUCStDev] = AdvancedErrorMetricsCalculator.LeaveOnePairOutBootstrapAUCAndStDev(vstBootstrappedPartitions(1:dNumBootstrapReps), c1oGuessResultsPerBootstrapPartition);
 
+% Add other error metrics via Central Library code
+
 FileIOUtils.SaveMatFile(...
     fullfile(Experiment.GetResultsDirectory(), 'AUC Metrics.mat'),...
     'vdAUCPerBootstrap', vdAUCPerBootstrap,...
@@ -222,6 +224,8 @@ Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('AUC 0.632+: ', 
 Experiment.AddToReport(ReportUtils.CreateParagraph("Mean: " + string(mean(vdAUC_0Point632PlusPerBootstrap))));
 Experiment.AddToReport(ReportUtils.CreateParagraph("Median: " + string(median(vdAUC_0Point632PlusPerBootstrap))));
 Experiment.AddToReport(ReportUtils.CreateParagraph("St. Dev.: " + string(std(vdAUC_0Point632PlusPerBootstrap))));
+
+
 
 % Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('AUC LPOB: ', ''));
 % Experiment.AddToReport(ReportUtils.CreateParagraph("Mean: " + string(dLPOBAUC)));

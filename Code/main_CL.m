@@ -59,38 +59,39 @@ function [oTuningSet, oTrainingSet, oTestingSet, oGuessResult] = main_CL()
 %   
 %%%%%%%%%%%%% LOAD SAVED IMAGE HANDLERS %%%%%%%%%%%%%%%%%
 
-voImageHandlers = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\ImageHandler_24.mat", 'voImageHandlers');
+voImageHandlers = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandler_24.mat", 'voImageHandlers');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
 % oLabelledFeatureValues = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\LabelledFeatureValues_24.mat", 'oLabelledFeatureValues');
+FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\LabelledFeatureValues_24.mat','oLabelledFeatureValues', oLabelledFeatureValues);
 
-tuningRatio = 0.25;
-trainingRatio = 0.5;
-testingRatio = 0.25;
-
-[oTuningSet, oTrainingSet, oTestingSet] = CreateTuningTrainingAndTestingDataSets_CL(oLabelledFeatureValues, tuningRatio, trainingRatio, testingRatio);
-
-sOptionsPath = fullfile('HyperParameterOptimizer','Demos','MATLABMachineLearningHyperParameterOptimizerOptions.mat');
-
-oOptimizer = MATLABMachineLearningHyperParameterOptimizer(sOptionsPath, oTuningSet);
-
-% oClassifier = MATLABfitctree(fullfile('DefaultInputs','Classifier','MATLABfitctree_hyperParameters.mat'));
-
-oOptimizedClassifier = MATLABfitctree(...
-    fullfile('D:\Users\CentralLibraryGuest\Christina\Variables','MATLABfitctree_hyperParameters.mat'),...
-    oOptimizer);
-
-% oOptimizer = oOptimizedClassifier.GetHyperParameterOptimizer();
-
-oTrainedClassifier = oOptimizedClassifier.Train(oTrainingSet);
-
-oGuessResult = Guess(oTrainedClassifier, oTestingSet);
-
-ErrorMetricsCalculator_CL(oGuessResult);
-
-%FeatureSelector_CL(oTuningSet, oTrainingSet, oTestingSet, oOptimizedClassifier)
+% tuningRatio = 0.25;
+% trainingRatio = 0.5;
+% testingRatio = 0.25;
+% 
+% [oTuningSet, oTrainingSet, oTestingSet] = CreateTuningTrainingAndTestingDataSets_CL(oLabelledFeatureValues, tuningRatio, trainingRatio, testingRatio);
+% 
+% sOptionsPath = fullfile('HyperParameterOptimizer','Demos','MATLABMachineLearningHyperParameterOptimizerOptions.mat');
+% 
+% oOptimizer = MATLABMachineLearningHyperParameterOptimizer(sOptionsPath, oTuningSet);
+% 
+% % oClassifier = MATLABfitctree(fullfile('DefaultInputs','Classifier','MATLABfitctree_hyperParameters.mat'));
+% 
+% oOptimizedClassifier = MATLABfitctree(...
+%     fullfile('D:\Users\CentralLibraryGuest\Christina\Variables','MATLABfitctree_hyperParameters.mat'),...
+%     oOptimizer);
+% 
+% % oOptimizer = oOptimizedClassifier.GetHyperParameterOptimizer();
+% 
+% oTrainedClassifier = oOptimizedClassifier.Train(oTrainingSet);
+% 
+% oGuessResult = Guess(oTrainedClassifier, oTestingSet);
+% 
+% ErrorMetricsCalculator_CL(oGuessResult);
+% 
+% %FeatureSelector_CL(oTuningSet, oTrainingSet, oTestingSet, oOptimizedClassifier)
 
 end
