@@ -1,0 +1,13 @@
+Experiment [2024-08-27_19.05.00]
+
+main.m:
+	oRadiomicDataSet = "LabelledFeatureValues_24.mat"
+	dNumBootstrapReps = 20
+
+MDL Parameters:
+	NumTrees = [100, 1000]
+	MaxNumCategories = 10
+
+
+FS Parameters:
+	Cutoff = 0.8000

@@ -307,4 +307,26 @@ save('Model Hyper Parameters.mat', 'tHyperParameters')
 load('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Parameters\MDL\Parameters\Model Hyper Parameters.mat')
 load('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Parameters\MDL\Parameters\Model Hyper Parameters.mat', 'tHyperParameters')
 tHyperParameters.c1xOptimizationDomain{1} = [100,1000];
-FileIOUtils.SaveMatFile('D:\Users\CentralLibrary
+FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Parameters\MDL\Parameters\Model Hyper Parameters.mat', 'tHyperParameters', tHyperParameters);
+load('Model Hyper Parameters.mat')
+load('Model Hyper Parameters.mat', 'tHyperParameters')
+Experiment.Run()
+Validating Experiment...{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment/ValidateStartingWorkingDirectory', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m', 2343)" style="font-weight:bold">Experiment/ValidateStartingWorkingDirectory</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',2343,0)">line 2343</a>)
+The current "Experiment" class being used is not in the current working directory. Please alter the search path or change your current
+working directory to change this. Use "which('Experiment', '-all')" to investigate which Experiment.m file is being used currently, or
+use "Experiment.RemoveAllExperimentInstancesFromPathExceptCurrentDirectory()" to remove conflicting instances of Experiment.m from your
+current path.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m', 1723)" style="font-weight:bold">Experiment</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',1723,0)">line 1723</a>)
+            obj.ValidateStartingWorkingDirectory();
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.Run', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m', 263)" style="font-weight:bold">Experiment.Run</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores\Experiment.m',263,0)">line 263</a>)
+            oExperiment = Experiment(bDebug, bResume, NameValueArgs);
+} 
+Experiment.RemoveAllExperimentInstancesFromPathExceptCurrentDirectory()
+Experiment.Run()
+Validating Experiment...Done
+Creating experiment directory...Done
+Copying experiment folder...Done
+Copying code...Done
+Removing/adding paths...Done
