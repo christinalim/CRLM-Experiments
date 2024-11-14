@@ -1,0 +1,65 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Loading Experiment Assets
+  Start Time: Sep 29, 2024 21:17:17
+
+****************************************************************************************************
+
+
+
+****************************************************************************************************
+
+Experiment Section: Bootstrapped Iterations
+  Start Time: Sep 29, 2024 21:17:19
+
+****************************************************************************************************
+
+
+chResultsDirPath = 
+
+    "D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01]\Results\02 Bootstrapped Iterations"
+
+
+
+****************************************************************************************************
+
+Experiment Section: Performance
+  Start Time: Sep 29, 2024 21:17:19
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+
+
+Experiment Failed:
+             Start: Sep 29, 2024 21:17:13
+          Error At: Sep 29, 2024 21:17:29
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01] [2024-09-29_21.17.13]
+
+Experiment Error:
+
+The class ErrorMetricsCalculator has no Constant property or Static method named 'CalculateAccuracy'.
+
+Error in main (line 204)
+    vdAccuracyPerBootstrap(dBootstrapIndex) = ErrorMetricsCalculator.CalculateAccuracy(c1oGuessResultsPerBootstrapPartition{dBootstrapIndex});
+
+Error in run (line 91)
+evalin('caller', strcat(script, ';'));
+
+Error in Experiment/RunMain (line 1825)
+                run('main.m');
+
+Error in Experiment.Run (line 265)
+            [sCompletedExperimentPath, bErrored] = oExperiment.RunMain();
