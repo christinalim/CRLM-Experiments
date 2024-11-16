@@ -26,7 +26,11 @@ vbFilterFeatureMask = oTTestSelector.GetFeatureMask();
 % >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 % Wrapper based feature selector
 oObjectiveFunction = CreateKFoldCrossValidationObjectiveFunction_Demo();
+
+% successively takes most important features in combination with existing
+% features. can have bias for similar features.
 oWrapperSelector = ForwardWrapperFeatureSelector(sFeatureSelectionParametersPath, oObjectiveFunction);
+
 
 oWrapperSelector.SelectFeatures(oTuningSet, 'Classifier', oOptimizedClassifier, 'NumFeatures', 3, 'Verbose', true);
 

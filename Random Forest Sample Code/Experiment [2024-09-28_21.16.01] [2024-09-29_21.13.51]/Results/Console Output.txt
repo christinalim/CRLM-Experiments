@@ -1,62 +1,0 @@
-Running main.m...
-
-
-****************************************************************************************************
-
-
-
-
-****************************************************************************************************
-
-Experiment Section: Loading Experiment Assets
-  Start Time: Sep 29, 2024 21:13:55
-
-****************************************************************************************************
-
-<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01]\main.m',46,1)">46  </a>dNumBootstrapReps = 3;
-if system_dependent('IsDebugMode')==1, dbcont; end
-
-
-****************************************************************************************************
-
-Experiment Section: Bootstrapped Iterations
-  Start Time: Sep 29, 2024 21:13:59
-
-****************************************************************************************************
-
-
-chResultsDirPath = 
-
-    "D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01]\Results"
-
-
-
-
-****************************************************************************************************
-
-
-
-Experiment Failed:
-             Start: Sep 29, 2024 21:13:51
-          Error At: Sep 29, 2024 21:14:08
-  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01] [2024-09-29_21.13.51]
-
-Experiment Error:
-
-Error using load
-Unable to read file 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01]\Results\Iteration 1 Results.mat'. No such file or directory.
-
-Error in FileIOUtils.LoadMatFile (line 78)
-                stLoadedData = load(chPath, c1chVarNames{:});
-
-Error in main (line 172)
-    [c1oGuessResultsPerBootstrapPartition{dBootstrapIndex}, c1oOOBSamplesGuessResultsPerBootstrapPartition{dBootstrapIndex}] = FileIOUtils.LoadMatFile(...
-
-Error in run (line 91)
-evalin('caller', strcat(script, ';'));
-
-Error in Experiment/RunMain (line 1825)
-                run('main.m');
-
-Error in Experiment.Run (line 265)
-            [sCompletedExperimentPath, bErrored] = oExperiment.RunMain();

@@ -1,0 +1,66 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Loading Experiment Assets
+  Start Time: Sep 28, 2024 21:16:08
+
+****************************************************************************************************
+
+
+
+****************************************************************************************************
+
+Experiment Section: Bootstrapped Iterations
+  Start Time: Sep 28, 2024 21:16:09
+
+****************************************************************************************************
+
+Configuring parpool for experiment...
+CentralLibrary: Adding code paths for each worker
+  Worker 1: BAINESWS02 (PID 2020) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01]]
+  Worker 2: BAINESWS02 (PID 9412) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01]]
+  Worker 3: BAINESWS02 (PID 14884) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01]]
+Parpool successfully configured for experiment
+
+
+****************************************************************************************************
+
+Experiment Section: Performance
+  Start Time: Sep 28, 2024 22:27:47
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+
+
+Experiment Failed:
+             Start: Sep 28, 2024 21:16:01
+          Error At: Sep 28, 2024 22:27:51
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01]
+
+Experiment Error:
+
+The class ErrorMetricsCalculator has no Constant property or Static method named 'CalculateAccuracy'.
+
+Error in main (line 202)
+    vdAccuracyPerBootstrap(dBootstrapIndex) = ErrorMetricsCalculator.CalculateAccuracy(c1oGuessResultsPerBootstrapPartition{dBootstrapIndex});
+
+Error in run (line 91)
+evalin('caller', strcat(script, ';'));
+
+Error in Experiment/RunMain (line 1825)
+                run('main.m');
+
+Error in Experiment.Run (line 265)
+            [sCompletedExperimentPath, bErrored] = oExperiment.RunMain();
