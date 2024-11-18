@@ -190,42 +190,12 @@ Experiment.StartNewSection('Performance');
 
 % Initialize arrays for storing results across bootstrap replications
 vdAUCPerBootstrap = zeros(dNumBootstrapReps,1);
-vdFalseNegativeRatePerBootstrap = zeros(dNumBootstrapReps,1);
-vdFalsePositiveRatePerBootstrap = zeros(dNumBootstrapReps,1);
-vdRecallPerBootstrap = zeros(dNumBootstrapReps,1);
-vdF1PerBootstrap = zeros(dNumBootstrapReps,1);
 
-% % Loop through the bootstrap replications and calculate metrics
-% for dBootstrapIndex=1:dNumBootstrapReps
-%     % Calculate AUC for each bootstrap
-%     vdAUCPerBootstrap(dBootstrapIndex) = ErrorMetricsCalculator.CalculateAUC(c1oGuessResultsPerBootstrapPartition{dBootstrapIndex}, 'JournalingOn', false);
-%     
-%     
-%        
-%     
-%     % Calculate additional metrics for each bootstrap
-%     vdFalseNegativeRatePerBootstrap(dBootstrapIndex) = ErrorMetricsCalculator.CalculateFalseNegativeRate(c1oGuessResultsPerBootstrapPartition{dBootstrapIndex});
-%     vdFalsePositiveRatePerBootstrap(dBootstrapIndex) = ErrorMetricsCalculator.CalculateFalsePositiveRate(c1oGuessResultsPerBootstrapPartition{dBootstrapIndex});
-% end
+% Loop through the bootstrap replications and calculate metrics
+for dBootstrapIndex=1:dNumBootstrapReps
+    % Calculate AUC for each bootstrap
+    vdAUCPerBootstrap(dBootstrapIndex) = ErrorMetricsCalculator.CalculateAUC(c1oGuessResultsPerBootstrapPartition{dBootstrapIndex}, 'JournalingOn', false);
 
-
-for i=1: dNumBootstrapReps               
-%Find values with the highest TPR nad lowest FNR
- c1xCriteria = {"upperleft", "FNR"};
- dThreshold(i) = ErrorMetricsCalculator.CalculateOptimalThreshold...
-    (c1xCriteria, c1oGuessResultsPerBootstrapPartition{i, 1});
- 
-%calculate the FNR
-dFalseNegativeRate(i) = ErrorMetricsCalculator.CalculateFalseNegativeRate...
-    (c1oGuessResultsPerBootstrapPartition{i, 1}, dThreshold(i));
- 
-%Calculate the FPR
-dFalsePositiveRate(i) = ErrorMetricsCalculator.CalculateFalsePositiveRate...
-    (c1oGuessResultsPerBootstrapPartition{i, 1}, dThreshold(i));
- 
-%calculate the misclassification rate
-classificationRate(i) = ErrorMetricsCalculator.CalculateMisclassificationRate...
-    (c1oGuessResultsPerBootstrapPartition{i, 1}, dThreshold(i));
 end
 
 % Calculate advanced AUC metrics
@@ -236,17 +206,24 @@ dAUCTrainAndTestOnAllSamples = ErrorMetricsCalculator.CalculateAUC(oTrainAndTest
 
 [dLPOBAUC, dLPOBAUCStDev] = AdvancedErrorMetricsCalculator.LeaveOnePairOutBootstrapAUCAndStDev(vstBootstrappedPartitions(1:dNumBootstrapReps), c1oGuessResultsPerBootstrapPartition);
 
+% Calculate other metrics
+dThresh=(sum(dThreshold)/dNumBootstrapReps);
+dFNR=(sum(dFalseNegativeRate)/dNumBootstrapReps);
+dFPR=(sum(dFalsePositiveRate)/dNumBootstrapReps);
+dMiss=(sum(classificationRate)/dNumBootstrapReps);
+
 % Save metrics to MAT file
 FileIOUtils.SaveMatFile(...
     fullfile(Experiment.GetResultsDirectory(), 'AUC Metrics.mat'),...
     'vdAUCPerBootstrap', vdAUCPerBootstrap,...
     'vdAUC_0Point632PerBootstrap', vdAUC_0Point632PerBootstrap,...
     'vdAUC_0Point632PlusPerBootstrap', vdAUC_0Point632PlusPerBootstrap,...
-    'vdFalseNegativeRatePerBootstrap', vdFalseNegativeRatePerBootstrap,...   % Save FN
-    'vdFalsePositiveRatePerBootstrap', vdFalsePositiveRatePerBootstrap,... % Save FP
     'dAUCTrainAndTestOnAllSamples', dAUCTrainAndTestOnAllSamples,...
-    'dLPOBAUC', dLPOBAUC, 'dLPOBAUCStDev', dLPOBAUCStDev);
-
+    'dLPOBAUC', dLPOBAUC, 'dLPOBAUCStDev', dLPOBAUCStDev,...
+    'dThreshold', dThreshold,...
+    'dFalseNegativeRate', dFalseNegativeRate,...
+    'dFalsePositiveRate', dFalsePositiveRate,...
+    'classificationRate', classificationRate);
 
 Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('AUC: ', ''));
 Experiment.AddToReport(ReportUtils.CreateParagraph("Mean: " + string(mean(vdAUCPerBootstrap))));
@@ -263,30 +240,12 @@ Experiment.AddToReport(ReportUtils.CreateParagraph("Mean: " + string(mean(vdAUC_
 Experiment.AddToReport(ReportUtils.CreateParagraph("Median: " + string(median(vdAUC_0Point632PlusPerBootstrap))));
 Experiment.AddToReport(ReportUtils.CreateParagraph("St. Dev.: " + string(std(vdAUC_0Point632PlusPerBootstrap))));
 
-% False Negative Rate
-Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('False Negative Rate: ', ''));
-Experiment.AddToReport(ReportUtils.CreateParagraph("Mean: " + string(mean(vdFalseNegativeRatePerBootstrap))));
-Experiment.AddToReport(ReportUtils.CreateParagraph("Median: " + string(median(vdFalseNegativeRatePerBootstrap))));
-Experiment.AddToReport(ReportUtils.CreateParagraph("St. Dev.: " + string(std(vdFalseNegativeRatePerBootstrap))));
+Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('Other Error Metrics: ', ''));
+Experiment.AddToReport(ReportUtils.CreateParagraph("Threshold: " + string(dThresh)));
+Experiment.AddToReport(ReportUtils.CreateParagraph("False Negative Rate: " + string(dFNR))); 
+Experiment.AddToReport(ReportUtils.CreateParagraph("False Positive Rate: " + string(dFPR)));
+Experiment.AddToReport(ReportUtils.CreateParagraph("Classification Rate: " + string(dMiss)));
 
-% False Positive Rate
-Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('False Positive Rate: ', ''));
-Experiment.AddToReport(ReportUtils.CreateParagraph("Mean: " + string(mean(vdFalsePositiveRatePerBootstrap))));
-Experiment.AddToReport(ReportUtils.CreateParagraph("Median: " + string(median(vdFalsePositiveRatePerBootstrap))));
-Experiment.AddToReport(ReportUtils.CreateParagraph("St. Dev.: " + string(std(vdFalsePositiveRatePerBootstrap))));
-
-
-dThresh=(sum(dThreshold)/dNumBootstrapReps);
-Experiment.AddToReport(string(dThresh));
- 
-dFNR=(sum(dFalseNegativeRate)/dNumBootstrapReps);
-Experiment.AddToReport(string(dFNR));
- 
-dFPR=(sum(dFalsePositiveRate)/dNumBootstrapReps);
-Experiment.AddToReport(string(dFPR));
- 
-dMiss=(sum(classificationRate)/dNumBootstrapReps);
-Experiment.AddToReport(string(dMiss));
 
 % Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('AUC LPOB: ', ''));
 % Experiment.AddToReport(ReportUtils.CreateParagraph("Mean: " + string(dLPOBAUC)));
