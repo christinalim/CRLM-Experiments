@@ -166,7 +166,7 @@ Experiment.StartNewSection('Bootstrapped Iterations');
 c1oGuessResultsPerBootstrapPartition = cell(dNumBootstrapReps,1);
 c1oOOBSamplesGuessResultsPerBootstrapPartition = cell(dNumBootstrapReps,1);
 
-chResultsDirPath = "D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01]\Results\02 Bootstrapped Iterations"
+chResultsDirPath = "D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment Error Metric\Results\02 Bootstrapped Iterations"
 
 for dBootstrapIndex=1:dNumBootstrapReps
     [c1oGuessResultsPerBootstrapPartition{dBootstrapIndex}, c1oOOBSamplesGuessResultsPerBootstrapPartition{dBootstrapIndex}] = FileIOUtils.LoadMatFile(...
@@ -198,6 +198,25 @@ for dBootstrapIndex=1:dNumBootstrapReps
 
 end
 
+for i=1: dNumBootstrapReps               
+%Find values with the highest TPR nad lowest FNR
+ c1xCriteria = {"upperleft", "FNR"};
+ dThreshold(i) = ErrorMetricsCalculator.CalculateOptimalThreshold...
+    (c1xCriteria, c1oGuessResultsPerBootstrapPartition{i, 1});
+ 
+%calculate the FNR
+dFalseNegativeRate(i) = ErrorMetricsCalculator.CalculateFalseNegativeRate...
+    (c1oGuessResultsPerBootstrapPartition{i, 1}, dThreshold(i));
+ 
+%Calculate the FPR
+dFalsePositiveRate(i) = ErrorMetricsCalculator.CalculateFalsePositiveRate...
+    (c1oGuessResultsPerBootstrapPartition{i, 1}, dThreshold(i));
+ 
+%calculate the misclassification rate
+classificationRate(i) = ErrorMetricsCalculator.CalculateMisclassificationRate...
+    (c1oGuessResultsPerBootstrapPartition{i, 1}, dThreshold(i));
+end
+
 % Calculate advanced AUC metrics
 vdAUC_0Point632PerBootstrap = AdvancedErrorMetricsCalculator.CalculateAUC_0Point632(c1oGuessResultsPerBootstrapPartition, oTrainAndTestOnAllSamplesGuessResultForFeatureCombination);
 vdAUC_0Point632PlusPerBootstrap = AdvancedErrorMetricsCalculator.CalculateAUC_0Point632Plus(c1oGuessResultsPerBootstrapPartition, oTrainAndTestOnAllSamplesGuessResultForFeatureCombination);
@@ -206,12 +225,6 @@ dAUCTrainAndTestOnAllSamples = ErrorMetricsCalculator.CalculateAUC(oTrainAndTest
 
 [dLPOBAUC, dLPOBAUCStDev] = AdvancedErrorMetricsCalculator.LeaveOnePairOutBootstrapAUCAndStDev(vstBootstrappedPartitions(1:dNumBootstrapReps), c1oGuessResultsPerBootstrapPartition);
 
-% Calculate other metrics
-dThresh=(sum(dThreshold)/dNumBootstrapReps);
-dFNR=(sum(dFalseNegativeRate)/dNumBootstrapReps);
-dFPR=(sum(dFalsePositiveRate)/dNumBootstrapReps);
-dMiss=(sum(classificationRate)/dNumBootstrapReps);
-
 % Save metrics to MAT file
 FileIOUtils.SaveMatFile(...
     fullfile(Experiment.GetResultsDirectory(), 'AUC Metrics.mat'),...
@@ -219,11 +232,13 @@ FileIOUtils.SaveMatFile(...
     'vdAUC_0Point632PerBootstrap', vdAUC_0Point632PerBootstrap,...
     'vdAUC_0Point632PlusPerBootstrap', vdAUC_0Point632PlusPerBootstrap,...
     'dAUCTrainAndTestOnAllSamples', dAUCTrainAndTestOnAllSamples,...
-    'dLPOBAUC', dLPOBAUC, 'dLPOBAUCStDev', dLPOBAUCStDev,...
-    'dThreshold', dThreshold,...
-    'dFalseNegativeRate', dFalseNegativeRate,...
-    'dFalsePositiveRate', dFalsePositiveRate,...
-    'classificationRate', classificationRate);
+    'dLPOBAUC', dLPOBAUC, 'dLPOBAUCStDev', dLPOBAUCStDev);
+
+% Calculate other metrics
+dThresh=(sum(dThreshold)/dNumBootstrapReps);
+dFNR=(sum(dFalseNegativeRate)/dNumBootstrapReps);
+dFPR=(sum(dFalsePositiveRate)/dNumBootstrapReps);
+dMiss=(sum(classificationRate)/dNumBootstrapReps);
 
 Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('AUC: ', ''));
 Experiment.AddToReport(ReportUtils.CreateParagraph("Mean: " + string(mean(vdAUCPerBootstrap))));

@@ -1,0 +1,78 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Loading Experiment Assets
+  Start Time: Nov 18, 2024 13:24:59
+
+****************************************************************************************************
+
+
+
+****************************************************************************************************
+
+Experiment Section: Bootstrapped Iterations
+  Start Time: Nov 18, 2024 13:25:01
+
+****************************************************************************************************
+
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 3).
+Configuring parpool for experiment...
+CentralLibrary: Adding code paths for each worker
+  Worker 1: BAINESWS02 (PID 8196) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Test [2024-11-18_13.24.53]]
+  Worker 2: BAINESWS02 (PID 828) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Test [2024-11-18_13.24.53]]
+  Worker 3: BAINESWS02 (PID 10820) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Test [2024-11-18_13.24.53]]
+Parpool successfully configured for experiment
+
+
+
+****************************************************************************************************
+
+
+
+Experiment Failed:
+             Start: Nov 18, 2024 13:24:53
+          Error At: Nov 18, 2024 13:25:49
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Test [2024-11-18_13.24.53]
+
+Experiment Error:
+
+Error using optimizableVariable/checkRange (line 177)
+'Range' value must be a string array, a cell array of character vectors, or a numeric vector of length 2.
+
+Error in optimizableVariable/checkAndFill (line 158)
+            checkRange(this);
+
+Error in optimizableVariable (line 98)
+                this = checkAndFill(this);
+
+Error in MATLABTreeBagger/GetOptimizableVariables (line 389)
+
+Error in MATLABBayesianHyperParameterOptimizer/OptimizeParameters (line 347)
+
+Error in MATLABTreeBagger/ImplementationSpecificOptimizeHyperparameters (line 278)
+
+Error in Classifier/OptimizeHyperparameters (line 271)
+
+Error in MATLABTreeBagger (line 65)
+
+Error in ExperimentModel/CreateModel (line 78)
+
+Error in main (line 62)
+parfor dBootstrapRepIndex=1:dNumBootstrapReps+1   
+
+Error in run (line 91)
+evalin('caller', strcat(script, ';'));
+
+Error in Experiment/RunMain (line 1825)
+                run('main.m');
+
+Error in Experiment.Run (line 265)
+            [sCompletedExperimentPath, bErrored] = oExperiment.RunMain();

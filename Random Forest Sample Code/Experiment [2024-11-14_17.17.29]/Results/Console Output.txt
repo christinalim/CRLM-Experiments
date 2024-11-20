@@ -1,0 +1,92 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Loading Experiment Assets
+  Start Time: Nov 14, 2024 17:17:33
+
+****************************************************************************************************
+
+
+
+****************************************************************************************************
+
+Experiment Section: Bootstrapped Iterations
+  Start Time: Nov 14, 2024 17:17:35
+
+****************************************************************************************************
+
+
+chResultsDirPath = 
+
+    "D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01]\Results\02 Bootstrapped Iterations"
+
+
+
+****************************************************************************************************
+
+Experiment Section: Performance
+  Start Time: Nov 14, 2024 17:17:35
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+
+
+Experiment Failed:
+             Start: Nov 14, 2024 17:17:29
+          Error At: Nov 14, 2024 17:17:46
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-28_21.16.01] [2024-09-29_21.26.43] [2024-11-14_17.17.29]
+
+Experiment Error:
+
+Error using load
+Unable to read file '0.46853'. No such file or directory.
+
+Error in matlab.graphics.internal.figfile.FigFile/read (line 31)
+hgDataVars = load(filename, '-mat', '-regexp', '^hg[M]');
+
+Error in matlab.graphics.internal.figfile.FigFile
+
+Error in loadFigure (line 31)
+FF = matlab.graphics.internal.figfile.FigFile(fullpath);
+
+Error in openfig>localOpenFigure (line 75)
+    h = loadFigure(filename, visibleAction);
+
+Error in openfig (line 40)
+figOut = localOpenFigure(filename, reuse, visibleAction);
+
+Error in ExperimentSubSection/AddItemsToReportSection (line 644)
+                    hFig = openfig(chFigSavePath, 'invisible');
+
+Error in ExperimentSubSection/AddJournalToReportSection (line 257)
+            c1hReportFigureHandles = ExperimentSubSection.AddItemsToReportSection(...
+
+Error in Experiment/FinalizeSection (line 2872)
+            c1hReportSectionFigureHandles = obj.oCurrentSection.AddJournalToReportSection(...
+
+Error in Experiment.EndCurrentSection (line 1132)
+                            oExperiment.FinalizeSection();
+
+Error in main (line 305)
+Experiment.EndCurrentSection();
+
+Error in run (line 91)
+evalin('caller', strcat(script, ';'));
+
+Error in Experiment/RunMain (line 1825)
+                run('main.m');
+
+Error in Experiment.Run (line 265)
+            [sCompletedExperimentPath, bErrored] = oExperiment.RunMain();

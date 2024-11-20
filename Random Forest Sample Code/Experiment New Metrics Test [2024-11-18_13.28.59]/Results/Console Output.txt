@@ -1,0 +1,50 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Loading Experiment Assets
+  Start Time: Nov 18, 2024 13:29:08
+
+****************************************************************************************************
+
+
+
+****************************************************************************************************
+
+Experiment Section: Bootstrapped Iterations
+  Start Time: Nov 18, 2024 13:29:10
+
+****************************************************************************************************
+
+Configuring parpool for experiment...
+CentralLibrary: Adding code paths for each worker
+  Worker 1: BAINESWS02 (PID 8196) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Test [2024-11-18_13.28.59]]
+  Worker 2: BAINESWS02 (PID 828) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Test [2024-11-18_13.28.59]]
+  Worker 3: BAINESWS02 (PID 10820) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Test [2024-11-18_13.28.59]]
+Parpool successfully configured for experiment
+
+
+****************************************************************************************************
+
+Experiment Section: Performance
+  Start Time: Nov 18, 2024 14:32:59
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+
+Experiment Complete:
+             Start: Nov 18, 2024 13:28:59
+               End: Nov 18, 2024 14:33:08
+      Time Elapsed: 01:04:09
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Test [2024-11-18_13.28.59]
