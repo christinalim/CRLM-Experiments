@@ -1,0 +1,52 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Loading Experiment Assets
+  Start Time: Nov 20, 2024 09:28:47
+
+****************************************************************************************************
+
+
+
+****************************************************************************************************
+
+Experiment Section: Bootstrapped Iterations
+  Start Time: Nov 20, 2024 09:28:50
+
+****************************************************************************************************
+
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 3).
+Configuring parpool for experiment...
+CentralLibrary: Adding code paths for each worker
+  Worker 1: BAINESWS02 (PID 12744) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Test [2024-11-20_09.28.40]]
+  Worker 2: BAINESWS02 (PID 12240) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Test [2024-11-20_09.28.40]]
+  Worker 3: BAINESWS02 (PID 9032) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Test [2024-11-20_09.28.40]]
+Parpool successfully configured for experiment
+
+
+****************************************************************************************************
+
+Experiment Section: Performance
+  Start Time: Nov 20, 2024 14:04:32
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+
+Experiment Complete:
+             Start: Nov 20, 2024 09:28:40
+               End: Nov 20, 2024 14:05:20
+      Time Elapsed: 04:36:39
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Test [2024-11-20_09.28.40]

@@ -43,7 +43,7 @@ dNumGroupsInTrainingSetMultiplier = 1;
 dNumGroupsInTrainingSet = round(dNumGroupsInTrainingSetMultiplier*oReferenceDataSet.GetNumberOfGroups());
 dNumGroupsInTestingSet = []; % default behaviour
 
-dNumBootstrapReps = 20;
+dNumBootstrapReps = 200;
 bAtLeastOneOfEachLabelPerPartition = true;
 
 vstBootstrappedPartitions = BootstrappingPartition.CreatePartitions(oReferenceDataSet, dNumBootstrapReps, dNumGroupsInTrainingSet, dNumGroupsInTestingSet, bAtLeastOneOfEachLabelPerPartition);
