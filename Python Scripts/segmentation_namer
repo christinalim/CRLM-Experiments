@@ -1,0 +1,25 @@
+import os
+
+def rename_file_in_directory(directory):
+    for filename in os.listdir(directory):
+        # Check if the file has a .nii extension
+        if filename.endswith(".nii"):
+            # Split the filename at the underscore
+            parts = filename.split('_', 1)
+            if len(parts) > 1:
+                # Construct the new filename
+                new_filename = f"{parts[0]}_Segmentation.nii"
+                # Build full paths for the old and new filenames
+                old_path = os.path.join(directory, filename)
+                new_path = os.path.join(directory, new_filename)
+                # Rename the file
+                os.rename(old_path, new_path)
+                print(f"Renamed: {filename} -> {new_filename}")
+            else:
+                print(f"Skipped: {filename} (no underscore to process)")
+
+# Example usage
+if __name__ == "__main__":
+    # Specify the directory containing the .nii files
+    directory = "/Users/clim/Developer/MAR/Segmentation/Segmentation_nii"
+    rename_file_in_directory(directory)
