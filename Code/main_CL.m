@@ -47,26 +47,27 @@ function [oTuningSet, oTrainingSet, oTestingSet, oGuessResult] = main_CL()
 
 %%%%%%%%%%%%%% GENERATE MULTIPLE NEW IMAGE HANDLERS %%%%%%%%%%%%%%%%
 
-% % Specify the path to lesion CSV file and images/segmentations
-% sCsvFileName = "D:\Users\CentralLibraryGuest\Christina\Experiments\Resources\Lesion_Labels.csv";
-% sImageBasePath = "D:\Users\CentralLibraryGuest\Christina\Image Database";
-% 
-% % Specify number of patients to extract data from
-% % OPTIONS: integer value OR -1 to do all patients in csv file
-% numPatients = 24;
+% Specify the path to lesion CSV file and images/segmentations
+sCsvFileName = "D:\Users\CentralLibraryGuest\Christina\Experiments\Resources\Lesion_Labels.csv";
+sImageBasePath = "D:\Users\CentralLibraryGuest\Christina\Image Database";
+
+% Specify number of patients to extract data from
+% OPTIONS: integer value OR -1 to do all patients in csv file
+% numPatients = 60;
 % 
 % voImageHandlers = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients);
 %   
 %%%%%%%%%%%%% LOAD SAVED IMAGE HANDLERS %%%%%%%%%%%%%%%%%
 
-voImageHandlers = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandler_24.mat", 'voImageHandlers');
+% FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_60.mat','voImageHandlers', voImageHandlers);
+voImageHandlers = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_60.mat", 'voImageHandlers');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
 % oLabelledFeatureValues = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\LabelledFeatureValues_24.mat", 'oLabelledFeatureValues');
-FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\LabelledFeatureValues_24.mat','oLabelledFeatureValues', oLabelledFeatureValues);
+FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\LabelledFeatureValues_60.mat','oLabelledFeatureValues', oLabelledFeatureValues);
 
 % tuningRatio = 0.25;
 % trainingRatio = 0.5;

@@ -1,0 +1,52 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Loading Experiment Assets
+  Start Time: Nov 25, 2024 22:16:51
+
+****************************************************************************************************
+
+
+
+****************************************************************************************************
+
+Experiment Section: Bootstrapped Iterations
+  Start Time: Nov 25, 2024 22:16:54
+
+****************************************************************************************************
+
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 3).
+Configuring parpool for experiment...
+CentralLibrary: Adding code paths for each worker
+  Worker 1: BAINESWS02 (PID 12232) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment N60 [2024-11-25_22.16.40]]
+  Worker 2: BAINESWS02 (PID 7888) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment N60 [2024-11-25_22.16.40]]
+  Worker 3: BAINESWS02 (PID 13396) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment N60 [2024-11-25_22.16.40]]
+Parpool successfully configured for experiment
+
+
+****************************************************************************************************
+
+Experiment Section: Performance
+  Start Time: Nov 27, 2024 14:15:58
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+
+Experiment Complete:
+             Start: Nov 25, 2024 22:16:40
+               End: Nov 27, 2024 14:18:13
+      Time Elapsed: 16:01:33
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment N60 [2024-11-25_22.16.40]

@@ -294,6 +294,8 @@ classdef (Abstract) Feature < matlab.mixin.Heterogeneous
                     % increment the current ROI (if possible)
                     oImageVolumeWithSampleIds.IncrementCurrentRegionOfInterestExtractionIndex();
                 end
+                
+                disp("Extracted images for index " + dRoiIndex);
             end
             
             oImageVolumeWithSampleIds.UnloadVolumeData(); % dump the image data from RAM
