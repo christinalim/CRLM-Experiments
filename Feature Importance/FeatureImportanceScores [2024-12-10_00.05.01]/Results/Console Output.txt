@@ -1,0 +1,31 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Progression
+  Start Time: Dec 10, 2024 00:05:12
+
+****************************************************************************************************
+
+
+sResultsDirectory =
+
+    'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment N60 [2024-12-04_08.23.49]\Results'
+
+
+
+
+****************************************************************************************************
+
+
+Experiment Complete:
+             Start: Dec 10, 2024 00:05:01
+               End: Dec 10, 2024 00:06:23
+      Time Elapsed: 00:01:21
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores [2024-12-10_00.05.01]

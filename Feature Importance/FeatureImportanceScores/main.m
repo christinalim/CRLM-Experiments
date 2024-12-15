@@ -1,5 +1,5 @@
 
-dNumBootstraps = 100;
+dNumBootstraps = 200;
 
 Experiment.StartNewSection('Progression');
 m2bOverallFeatureImportanceMatrix = [];
@@ -8,7 +8,7 @@ ZeroCount = 0;
 for CurrentExp = 1
     
     %%%%%%%
-    sResultsDirectory = 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment [2024-09-15_20.12.49]\Results'
+    sResultsDirectory = 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment N60 [2024-12-04_08.23.49]\Results'
     % Example for my code: "E:\Users\rpolicelli\Brain Project\LRCP Experiments\EXP\200\003\102R [2023-12-06_21.56.24]\Results";
     
     
@@ -21,7 +21,7 @@ for CurrentExp = 1
     oClinicalDataSet = [];
     
     %%%%%%%%%%%
-    oRadiomicDataSet = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\LabelledFeatureValues_24.mat", 'oLabelledFeatureValues');
+    oRadiomicDataSet = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\LabelledFeatureValues_60.mat", 'oLabelledFeatureValues');
     
     oReferenceDataSet = oRadiomicDataSet;
 

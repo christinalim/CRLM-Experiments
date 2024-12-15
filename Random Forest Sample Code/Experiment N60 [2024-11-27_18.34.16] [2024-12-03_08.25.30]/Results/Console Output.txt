@@ -1,0 +1,60 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Loading Experiment Assets
+  Start Time: Dec 03, 2024 08:25:42
+
+****************************************************************************************************
+
+
+
+****************************************************************************************************
+
+Experiment Section: Bootstrapped Iterations
+  Start Time: Dec 03, 2024 08:25:48
+
+****************************************************************************************************
+
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 3).
+Configuring parpool for experiment...
+CentralLibrary: Adding code paths for each worker
+  Worker 1: BAINESWS02 (PID 12404) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment N60 [2024-11-27_18.34.16] [2024-12-03_08.25.30]]
+  Worker 2: BAINESWS02 (PID 6684) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment N60 [2024-11-27_18.34.16] [2024-12-03_08.25.30]]
+  Worker 3: BAINESWS02 (PID 6220) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment N60 [2024-11-27_18.34.16] [2024-12-03_08.25.30]]
+Parpool successfully configured for experiment
+
+
+
+****************************************************************************************************
+
+
+
+Experiment Failed:
+             Start: Dec 03, 2024 08:25:30
+          Error At: Dec 03, 2024 19:15:27
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment N60 [2024-11-27_18.34.16] [2024-12-03_08.25.30]
+
+Experiment Error:
+
+Error using ExperimentLoopIterationManager/PostLoopTeardown (line 319)
+Not all the iterations were completed, or some iterations were completed multiple times.
+
+Error in main (line 158)
+oManager.PostLoopTeardown();
+
+Error in run (line 91)
+evalin('caller', strcat(script, ';'));
+
+Error in Experiment/RunMain (line 1825)
+                run('main.m');
+
+Error in Experiment.Resume (line 392)
+            oExperiment.RunMain();
