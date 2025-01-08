@@ -1,0 +1,82 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Loading Experiment Assets
+  Start Time: Jan 05, 2025 20:32:53
+
+****************************************************************************************************
+
+
+
+****************************************************************************************************
+
+Experiment Section: Bootstrapped Iterations
+  Start Time: Jan 05, 2025 20:32:58
+
+****************************************************************************************************
+
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 3).
+Configuring parpool for experiment...
+CentralLibrary: Adding code paths for each worker
+  Worker 1: BAINESWS02 (PID 12296) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size [2025-01-05_20.32.33]]
+  Worker 2: BAINESWS02 (PID 4960) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size [2025-01-05_20.32.33]]
+  Worker 3: BAINESWS02 (PID 7152) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size [2025-01-05_20.32.33]]
+Parpool successfully configured for experiment
+
+
+****************************************************************************************************
+
+Experiment Section: Performance
+  Start Time: Jan 06, 2025 03:21:56
+
+****************************************************************************************************
+
+[Warning: More than one threshold found from the previous criterion. Breaking the tie with criterion number 2.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ErrorMetricsCalculator.CalculateOptimalThreshold', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\ErrorMetrics\ErrorMetricsCalculator.m', 724)" style="font-weight:bold">ErrorMetricsCalculator.CalculateOptimalThreshold</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\ErrorMetrics\ErrorMetricsCalculator.m',724,0)">line 724</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\main.m', 201)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\main.m',201,0)">line 201</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment/RunMain', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m', 1825)" style="font-weight:bold">Experiment/RunMain</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m',1825,0)">line 1825</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.Run', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m', 265)" style="font-weight:bold">Experiment.Run</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m',265,0)">line 265</a>)] 
+[Warning: More than one threshold found from the previous criterion. Breaking the tie with criterion number 2.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ErrorMetricsCalculator.CalculateOptimalThreshold', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\ErrorMetrics\ErrorMetricsCalculator.m', 724)" style="font-weight:bold">ErrorMetricsCalculator.CalculateOptimalThreshold</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\ErrorMetrics\ErrorMetricsCalculator.m',724,0)">line 724</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\main.m', 201)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\main.m',201,0)">line 201</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment/RunMain', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m', 1825)" style="font-weight:bold">Experiment/RunMain</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m',1825,0)">line 1825</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.Run', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m', 265)" style="font-weight:bold">Experiment.Run</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m',265,0)">line 265</a>)] 
+[Warning: More than one threshold found from the previous criterion. Breaking the tie with criterion number 2.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ErrorMetricsCalculator.CalculateOptimalThreshold', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\ErrorMetrics\ErrorMetricsCalculator.m', 724)" style="font-weight:bold">ErrorMetricsCalculator.CalculateOptimalThreshold</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\ErrorMetrics\ErrorMetricsCalculator.m',724,0)">line 724</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\main.m', 201)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\main.m',201,0)">line 201</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment/RunMain', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m', 1825)" style="font-weight:bold">Experiment/RunMain</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m',1825,0)">line 1825</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.Run', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m', 265)" style="font-weight:bold">Experiment.Run</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m',265,0)">line 265</a>)] 
+[Warning: More than one threshold found from the previous criterion. Breaking the tie with criterion number 2.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ErrorMetricsCalculator.CalculateOptimalThreshold', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\ErrorMetrics\ErrorMetricsCalculator.m', 724)" style="font-weight:bold">ErrorMetricsCalculator.CalculateOptimalThreshold</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\ErrorMetrics\ErrorMetricsCalculator.m',724,0)">line 724</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\main.m', 201)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\main.m',201,0)">line 201</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment/RunMain', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m', 1825)" style="font-weight:bold">Experiment/RunMain</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m',1825,0)">line 1825</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.Run', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m', 265)" style="font-weight:bold">Experiment.Run</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m',265,0)">line 265</a>)] 
+[Warning: More than one threshold found from the previous criterion. Breaking the tie with criterion number 2.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ErrorMetricsCalculator.CalculateOptimalThreshold', 'D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\ErrorMetrics\ErrorMetricsCalculator.m', 724)" style="font-weight:bold">ErrorMetricsCalculator.CalculateOptimalThreshold</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev\ErrorMetrics\ErrorMetricsCalculator.m',724,0)">line 724</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\main.m', 201)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\main.m',201,0)">line 201</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('run', 'C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m', 91)" style="font-weight:bold">run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2019b\toolbox\matlab\lang\run.m',91,0)">line 91</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment/RunMain', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m', 1825)" style="font-weight:bold">Experiment/RunMain</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m',1825,0)">line 1825</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Experiment.Run', 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m', 265)" style="font-weight:bold">Experiment.Run</a> (<a href="matlab: opentoline('D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size\Experiment.m',265,0)">line 265</a>)] 
+
+
+
+****************************************************************************************************
+
+
+Experiment Complete:
+             Start: Jan 05, 2025 20:32:33
+               End: Jan 06, 2025 03:23:43
+      Time Elapsed: 06:51:10
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment New Metrics Size [2025-01-05_20.32.33]

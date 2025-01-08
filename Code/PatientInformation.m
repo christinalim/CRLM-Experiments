@@ -3,6 +3,7 @@ classdef PatientInformation
         PatientIndex
         RawLesionData
         LesionLabels
+%         LesionSizes
         LesionIndexing
         PatientID
         PatientIDString
@@ -13,6 +14,7 @@ classdef PatientInformation
             obj.PatientIndex = patientIndex;
             obj.RawLesionData = rawLesionData;
             obj.LesionLabels = lesionLabels;
+%             obj.LesionSizes = lesionSizes;
             obj.LesionIndexing = lesionIndexing;
             obj.PatientID = patientID;
             obj.PatientIDString = patientIDString;
@@ -20,11 +22,23 @@ classdef PatientInformation
         
         function T1Images = createT1Images(obj, sImageBasePath)
             % load up T1 ROIs segmentation (NIfTI format)
-            oT1ROIs = NIfTILabelMapRegionsOfInterest(fullfile(sImageBasePath,obj.PatientIDString,"Segmentation",obj.PatientID +"_Segmentation.nii"));
+            segmentationFilePath = fullfile(...
+                    sImageBasePath, obj.PatientIDString, "Segmentation",...
+                    obj.PatientID +"_Segmentation.nii"...
+                    );
+            oT1ROIs = NIfTILabelMapRegionsOfInterest(...
+                segmentationFilePath...
+             );
 
             % load up T1 ROIs volume (NIfTI format) with corresponding
             % segmentations
-            T1Images = NIfTIImageVolume(fullfile(sImageBasePath,obj.PatientIDString,"Volume",obj.PatientID +"_Volume.nii"), oT1ROIs);
+               %     function obj = NIfTIImageVolume(chFilePath, oRegionsOfInterest, NameValueArgs)
+
+            T1Images = NIfTIImageVolume(...
+                fullfile(...
+            sImageBasePath,obj.PatientIDString,"Volume",obj.PatientID +"_Volume.nii"),...
+                oT1ROIs...
+             );
             dMin = T1Images.GetImageDataMinimumValue();
             dMax = T1Images.GetImageDataMaximumValue();
             if dMin >= -1 && dMax <= 1
@@ -55,6 +69,11 @@ classdef PatientInformation
 
             % Extract and initialize instances of PatientInformation
             for i = 1:dNumPatients
+                % TODO: get matrix of lesion sizes, then filter out 
+                % 'columns' (of lesion data) that are below/above lg/sm 
+                % threshold. Remove patients that have no lesions in size
+                % class.
+                
                 % Remove trailing zeros
                 rawLesionData = patientLesions(i, :);
                 rawLesionData = rawLesionData(~isnan(rawLesionData));
@@ -74,6 +93,7 @@ classdef PatientInformation
         end
         
         function [c1oT1Images, activePatients] = ExtractPatientImages(allPatients, numPatients, sImageBasePath)
+            % vector of patient images
             c1oT1Images = {}; % empty 1 x dNumPatients vector
             activePatients = [];
 
