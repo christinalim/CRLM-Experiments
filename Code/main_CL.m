@@ -53,13 +53,13 @@ sImageBasePath = "D:\Users\CentralLibraryGuest\Christina\Image Database";
 
 % Specify number of patients to extract data from
 % OPTIONS: integer value OR -1 to do all patients in csv file
-numPatients = 5;
+numPatients = 60;
 
 voImageHandlers = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients);
 %   
 %%%%%%%%%%%%% LOAD SAVED IMAGE HANDLERS %%%%%%%%%%%%%%%%%
 
-% FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_60.mat','voImageHandlers', voImageHandlers);
+FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_60.mat','voImageHandlers', voImageHandlers);
 % voImageHandlers = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_60.mat", 'voImageHandlers');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
