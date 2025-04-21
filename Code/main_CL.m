@@ -1,3 +1,5 @@
+
+
 function [oTuningSet, oTrainingSet, oTestingSet, oGuessResult] = main_CL()
 
 %%%%%%%%%%%%% GENERATE SINGLE IMAGE HANDLERS (DE-BUGGING) %%%%%%%%%%%%%%%%%
@@ -48,26 +50,32 @@ function [oTuningSet, oTrainingSet, oTestingSet, oGuessResult] = main_CL()
 %%%%%%%%%%%%%% GENERATE MULTIPLE NEW IMAGE HANDLERS %%%%%%%%%%%%%%%%
 
 % Specify the path to lesion CSV file and images/segmentations
-sCsvFileName = "D:\Users\CentralLibraryGuest\Christina\Experiments\Resources\Lesion_Labels.csv";
-sImageBasePath = "D:\Users\CentralLibraryGuest\Christina\Image Database";
+sCsvFileName = "D:\Users\CentralLibraryGuest\Christina\Experiments\Resources\Lesion_Labels_GS.csv";
+sImageBasePath = "D:\Users\CentralLibraryGuest\Christina\Image Database 2";
 
 % Specify number of patients to extract data from
 % OPTIONS: integer value OR -1 to do all patients in csv file
-numPatients = 60;
+numPatients = -1;
 
-voImageHandlers = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients);
-%   
+% voImageHandlersT1 = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients, "T1");
+% FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_T1_60.mat','voImageHandlersT1', voImageHandlersT1);
+% voImageHandlersT2 = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients, "T2");
+% FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_T2_60.mat','voImageHandlersT2', voImageHandlersT2);
+% voImageHandlersDWI = NIfTIImageVolume_CL(sCsvFileName, sImageBasePath, numPatients, "DWI");
+% FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_DWI_60.mat','voImageHandlersDWI', voImageHandlersDWI);
+   
 %%%%%%%%%%%%% LOAD SAVED IMAGE HANDLERS %%%%%%%%%%%%%%%%%
 
-FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_60.mat','voImageHandlers', voImageHandlers);
-% voImageHandlers = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_60.mat", 'voImageHandlers');
+voImageHandlersT1 = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_T1_60.mat", 'voImageHandlersT1');
+voImageHandlersT2 = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_T2_60.mat", 'voImageHandlersT2');
+voImageHandlersDWI = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\ImageHandlers_DWI_60.mat", 'voImageHandlersDWI');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlers);
+oLabelledFeatureValues = ExtractFeatures_CL(voImageHandlersT1, voImageHandlersT2, voImageHandlersDWI);
 % oLabelledFeatureValues = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Variables\LabelledFeatureValues_24.mat", 'oLabelledFeatureValues');
-FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\LabelledFeatureValues_60.mat','oLabelledFeatureValues', oLabelledFeatureValues);
+FileIOUtils.SaveMatFile('D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\LabelledFeatureValues_ALL_60.mat','oLabelledFeatureValues', oLabelledFeatureValues);
 
 % tuningRatio = 0.25;
 % trainingRatio = 0.5;
