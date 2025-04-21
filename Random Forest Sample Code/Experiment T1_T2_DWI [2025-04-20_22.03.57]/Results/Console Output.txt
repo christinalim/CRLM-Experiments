@@ -1,0 +1,52 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Loading Experiment Assets
+  Start Time: Apr 20, 2025 22:04:23
+
+****************************************************************************************************
+
+
+
+****************************************************************************************************
+
+Experiment Section: Bootstrapped Iterations
+  Start Time: Apr 20, 2025 22:04:29
+
+****************************************************************************************************
+
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 3).
+Configuring parpool for experiment...
+CentralLibrary: Adding code paths for each worker
+  Worker 1: BAINESWS02 (PID 4028) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment T1_T2_DWI [2025-04-20_22.03.57]]
+  Worker 2: BAINESWS02 (PID 12692) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment T1_T2_DWI [2025-04-20_22.03.57]]
+  Worker 3: BAINESWS02 (PID 8708) [D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment T1_T2_DWI [2025-04-20_22.03.57]]
+Parpool successfully configured for experiment
+
+
+****************************************************************************************************
+
+Experiment Section: Performance
+  Start Time: Apr 21, 2025 15:37:29
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+
+Experiment Complete:
+             Start: Apr 20, 2025 22:03:57
+               End: Apr 21, 2025 15:40:57
+      Time Elapsed: 17:37:00
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment T1_T2_DWI [2025-04-20_22.03.57]

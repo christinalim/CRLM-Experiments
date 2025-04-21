@@ -1,0 +1,31 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Progression
+  Start Time: Apr 21, 2025 17:17:17
+
+****************************************************************************************************
+
+
+sResultsDirectory =
+
+    'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment T1_T2_DWI [2025-04-20_22.03.57]\Results'
+
+
+
+
+****************************************************************************************************
+
+
+Experiment Complete:
+             Start: Apr 21, 2025 17:17:09
+               End: Apr 21, 2025 17:17:27
+      Time Elapsed: 00:00:18
+  Output Directory: D:\Users\CentralLibraryGuest\Christina\Experiments\Feature Importance\FeatureImportanceScores [2025-04-21_17.17.09]

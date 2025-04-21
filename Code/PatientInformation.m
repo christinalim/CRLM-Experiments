@@ -7,7 +7,7 @@ classdef PatientInformation
         LesionIndexing
         PatientID
         PatientIDString
-        T1ImagesVectorIndex
+        ImagesVectorIndex
     end
     methods
         function obj = PatientInformation(patientIndex, rawLesionData, lesionLabels, lesionIndexing, patientID, patientIDString)
@@ -19,8 +19,8 @@ classdef PatientInformation
             obj.PatientID = patientID;
             obj.PatientIDString = patientIDString;
         end
-        
-        function T1Images = createT1Images(obj, sImageBasePath)
+    
+        function Images = createImages_T1(obj, sImageBasePath)
             % load up T1 ROIs segmentation (NIfTI format)
             segmentationFilePath = fullfile(...
                     sImageBasePath, obj.PatientIDString, "Segmentation",...
@@ -34,27 +34,78 @@ classdef PatientInformation
             % segmentations
                %     function obj = NIfTIImageVolume(chFilePath, oRegionsOfInterest, NameValueArgs)
 
-            T1Images = NIfTIImageVolume(...
+            Images = NIfTIImageVolume(...
                 fullfile(...
             sImageBasePath,obj.PatientIDString,"Volume",obj.PatientID +"_Volume.nii"),...
                 oT1ROIs...
              );
-            dMin = T1Images.GetImageDataMinimumValue();
-            dMax = T1Images.GetImageDataMaximumValue();
+            dMin = Images.GetImageDataMinimumValue();
+            dMax = Images.GetImageDataMaximumValue();
             if dMin >= -1 && dMax <= 1
                 error("Cannot cast images to integer values because all values are between -1 and 1. See Patient: " + sImageBasePath);
             end
-            T1Images.CastImageDataToType('int16');
+            Images.CastImageDataToType('int16');
         end
-           
-        function obj = setT1ImagesVectorIndex(obj, voT1ImagesVectorIndex)
-            obj.T1ImagesVectorIndex = voT1ImagesVectorIndex;
+          
+        function Images = createImages_ALL(obj, sImageBasePath, sFeatureSource)
+            % Validate input
+            arguments
+                obj
+                sImageBasePath (1,:) char
+                sFeatureSource (1,:) char {mustBeMember(sFeatureSource, {'T1', 'T2', 'DWI'})}
+            end
+
+            % Format file names based on modality
+            segFileName = obj.PatientID + "_seg_" + sFeatureSource + ".nii";
+            volFileName = obj.PatientID + "_Volume_" + sFeatureSource + ".nii";
+
+            % Construct paths
+            segmentationFilePath = fullfile(...
+                sImageBasePath, obj.PatientIDString, "Segmentations", segFileName);
+            volumeFilePath = fullfile(...
+                sImageBasePath, obj.PatientIDString, "Volumes", volFileName);
+
+
+            % Load segmentation and volume
+            oROIs = NIfTILabelMapRegionsOfInterest(segmentationFilePath);
+            
+            %%%%%
+            % Read headers again
+            volInfo = niftiinfo(volumeFilePath);
+            roiInfo = niftiinfo(segmentationFilePath);
+
+            disp("---- Volume Header ----");
+            disp("Image Size: " + mat2str(volInfo.ImageSize));
+            disp("Pixel Dimensions: " + mat2str(volInfo.PixelDimensions));
+            disp("Transform T: "); disp(volInfo.Transform.T);
+
+            disp("---- Segmentation Header ----");
+            disp("Image Size: " + mat2str(roiInfo.ImageSize));
+            disp("Pixel Dimensions: " + mat2str(roiInfo.PixelDimensions));
+            disp("Transform T: "); disp(roiInfo.Transform.T);
+
+            %%%%%
+            
+            Images = NIfTIImageVolume(volumeFilePath, oROIs);
+
+            % Intensity range check
+            dMin = Images.GetImageDataMinimumValue();
+            dMax = Images.GetImageDataMaximumValue();
+            if dMin >= -1 && dMax <= 1
+                error("Cannot cast images to integer values because all values are between -1 and 1. See Patient: " + obj.PatientID);
+            end
+            Images.CastImageDataToType('int16');
+        end
+
+
+        function obj = setImagesVectorIndex(obj, voImagesVectorIndex)
+            obj.ImagesVectorIndex = voImagesVectorIndex;
         end
         
     end
     
     methods (Static)
-        function [allPatients] = ExtractPatientData(sCsvFileName)
+       function [allPatients] = ExtractPatientData(sCsvFileName)
 
             % Read the CSV file
             data = readmatrix(sCsvFileName, 'Delimiter', ',');
@@ -69,32 +120,47 @@ classdef PatientInformation
 
             % Extract and initialize instances of PatientInformation
             for i = 1:dNumPatients
-                % TODO: get matrix of lesion sizes, then filter out 
-                % 'columns' (of lesion data) that are below/above lg/sm 
-                % threshold. Remove patients that have no lesions in size
-                % class.
-                
-                % Remove trailing zeros
                 rawLesionData = patientLesions(i, :);
-                rawLesionData = rawLesionData(~isnan(rawLesionData));
-                % Create arrays for value 1 and value 2
-                lesionLabels = repmat(patientIndex(i), 1, numel(rawLesionData));
-                lesionIndexing = 1:numel(rawLesionData);
-                % Generate value 5 and value 6
-                patientID = sprintf('%03d', patientIndex(i));  % Formats patient ID with leading zeros
-                patientIDString = ['PT', patientID];  % Concatenates "PT" with formatted patient ID
-                % Store patient ID, extracted values, value 1 array, value 2 array, value 5, and value 6 as a tuple
 
-                newPatient = PatientInformation(patientIndex(i), rawLesionData, lesionLabels, lesionIndexing, patientID, patientIDString);
+                % Remove NaNs (trailing or missing lesions)
+                rawLesionData = rawLesionData(~isnan(rawLesionData));
+
+                % Filter out lesions with label -1
+                validLesionMask = rawLesionData ~= -1;
+                filteredLesionData = rawLesionData(validLesionMask);
+
+                % Skip this patient if no valid lesions remain
+                if isempty(filteredLesionData)
+                    continue;
+                end
+
+                % Use only the valid lesion positions for indexing
+                lesionLabels = repmat(patientIndex(i), 1, numel(filteredLesionData));
+                lesionIndexing = find(validLesionMask);  % Get original lesion positions (e.g., [1, 3, 4])
+
+                % Format patient ID
+                patientID = sprintf('%03d', patientIndex(i));  % e.g., '001'
+                patientIDString = ['PT', patientID];           % e.g., 'PT001'
+
+                % Create and store PatientInformation object
+                newPatient = PatientInformation(...
+                    patientIndex(i), ...
+                    filteredLesionData, ...
+                    lesionLabels, ...
+                    lesionIndexing, ...
+                    patientID, ...
+                    patientIDString ...
+                );
 
                 allPatients{i} = newPatient;
             end
 
         end
+
         
-        function [c1oT1Images, activePatients] = ExtractPatientImages(allPatients, numPatients, sImageBasePath)
+        function [c1oImages, activePatients] = ExtractPatientImages(allPatients, numPatients, sImageBasePath, sFeatureSource)
             % vector of patient images
-            c1oT1Images = {}; % empty 1 x dNumPatients vector
+            c1oImages = {}; % empty 1 x dNumPatients vector
             activePatients = [];
 
             if numPatients == -1
@@ -103,41 +169,61 @@ classdef PatientInformation
                 numPatientsIndex = numPatients;
             end
 
-            dT1ImagesVectorIndex = 1;
+            dImagesVectorIndex = 1;
 
             % load-up data
             for i=1:numPatientsIndex
                 if ~isempty(allPatients{i}.RawLesionData)
-                    activePatients{dT1ImagesVectorIndex} = allPatients{i};
+                    activePatients{dImagesVectorIndex} = allPatients{i};
 
-                    c1oT1Images{dT1ImagesVectorIndex} = activePatients{dT1ImagesVectorIndex}.createT1Images(sImageBasePath);
-                    activePatients{dT1ImagesVectorIndex} = activePatients{dT1ImagesVectorIndex}.setT1ImagesVectorIndex(dT1ImagesVectorIndex);
+                    c1oImages{dImagesVectorIndex} = activePatients{dImagesVectorIndex}.createImages_ALL(sImageBasePath, sFeatureSource);
+                    activePatients{dImagesVectorIndex} = activePatients{dImagesVectorIndex}.setImagesVectorIndex(dImagesVectorIndex);
 
-                    disp("Extracted images for " + activePatients{dT1ImagesVectorIndex}.PatientIDString);
+                    disp("Extracted images for " + activePatients{dImagesVectorIndex}.PatientIDString + " for Modality: " + sFeatureSource);
 
-                    dT1ImagesVectorIndex = dT1ImagesVectorIndex + 1;
+                    dImagesVectorIndex = dImagesVectorIndex + 1;
                 end
             end
         end
         
-        function [voImageHandlers] = GenerateImageHandlers(voT1Images, activePatients, sFeatureSource)
+        function [voImageHandlers] = GenerateImageHandlers(voImages, activePatients, sFeatureSource)
 
-            for i=1:length(voT1Images)
-                % Patient2 is the first volume with 10 lesions
-                % SampleIds (array of group ID #'s for each sample, array of subgroup ID #'s for each sample)
-                oSampleIds = SampleIds(int32(activePatients{i}.LesionLabels), int32(activePatients{i}.LesionIndexing));
+            for i = 1:length(voImages)
+                % Extract valid lesion info
+                lesionLabels = int32(activePatients{i}.LesionLabels);       % patient ID repeated
+                lesionIndices = int32(activePatients{i}.LesionIndexing);    % segmentation labels
+                lesionTruth = int32(activePatients{i}.RawLesionData);       % 0 = benign, 1 = malignant
 
-                % BinaryClassificationSampleLabels( oSampleIds, array of labels , pos label, neg label)
-                oSampleLabels = BinaryClassificationSampleLabels(oSampleIds, int32(activePatients{i}.RawLesionData), int32(1), int32(0));
+                % Sanity check: lengths should match
+                if length(lesionLabels) ~= length(lesionIndices) || length(lesionLabels) ~= length(lesionTruth)
+                    error("Mismatch in lesion label arrays for patient: " + activePatients{i}.PatientIDString);
+                end
+
+                % Debug print
+                disp("Patient " + activePatients{i}.PatientIDString + ...
+                     " - valid lesion indices used: " + mat2str(lesionIndices) + ...
+                     ", labels: " + mat2str(lesionTruth));
+
+                % Assign segmentation IDs and labels
+                oSampleIds = SampleIds(lesionLabels, lesionIndices);
+                oSampleLabels = BinaryClassificationSampleLabels(oSampleIds, lesionTruth, int32(1), int32(0));
+
+                % Create labeled image volume
                 oImageVolumeWithSampleIdsPatient = LabelledImageVolumeWithSampleIdsForFeatureExtraction(...
-                    voT1Images(i), sFeatureSource,...
-                    oSampleLabels);
+                    voImages(i), sFeatureSource, oSampleLabels);
+%                 oImageVolumeWithSampleIdsPatient = LabelledImageVolumeWithSampleIdsForFeatureExtraction(...
+%                     voImages(i), sFeatureSource, oSampleLabels, ...
+%                     'SampleOrder', lesionIndices);
+
+
+
+                % Store handler
                 voImageHandlers(i) = oImageVolumeWithSampleIdsPatient;
 
-               disp("Generated ImageHandler for " + activePatients{i}.PatientIDString);
-
+                disp("Generated ImageHandler for " + activePatients{i}.PatientIDString);
             end
 
         end
+
     end
 end

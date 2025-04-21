@@ -26,7 +26,7 @@ oClinicalDataSet = [];
 
 %%%%%%% Load in your Feature Values Table here as 'oRadiomicDataSet' %%%%%%%%
 
-oRadiomicDataSet = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\LabelledFeatureValues_60.mat", 'oLabelledFeatureValues');
+oRadiomicDataSet = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\LabelledFeatureValues_ALL_10.mat", 'oLabelledFeatureValues');
 oReferenceDataSet = oRadiomicDataSet;
 
 oOFN = load('OFN-001-001.mat');
@@ -43,7 +43,7 @@ dNumGroupsInTrainingSetMultiplier = 1;
 dNumGroupsInTrainingSet = round(dNumGroupsInTrainingSetMultiplier*oReferenceDataSet.GetNumberOfGroups());
 dNumGroupsInTestingSet = []; % default behaviour
 
-dNumBootstrapReps = 200;
+dNumBootstrapReps = 100;
 bAtLeastOneOfEachLabelPerPartition = true;
 
 vstBootstrappedPartitions = BootstrappingPartition.CreatePartitions(oReferenceDataSet, dNumBootstrapReps, dNumGroupsInTrainingSet, dNumGroupsInTestingSet, bAtLeastOneOfEachLabelPerPartition);
@@ -210,7 +210,7 @@ dFalsePositiveRate(i) = ErrorMetricsCalculator.CalculateFalsePositiveRate...
     (c1oGuessResultsPerBootstrapPartition{i, 1}, dThreshold(i));
  
 %calculate the misclassification rate
-classificationRate(i) = ErrorMetricsCalculator.CalculateMisclassificationRate...
+dMisclassificationRate(i) = ErrorMetricsCalculator.CalculateMisclassificationRate...
     (c1oGuessResultsPerBootstrapPartition{i, 1}, dThreshold(i));
 end
 
@@ -235,7 +235,7 @@ FileIOUtils.SaveMatFile(...
 dThresh=(sum(dThreshold)/dNumBootstrapReps);
 dFNR=(sum(dFalseNegativeRate)/dNumBootstrapReps);
 dFPR=(sum(dFalsePositiveRate)/dNumBootstrapReps);
-dMiss=(sum(classificationRate)/dNumBootstrapReps);
+dMiss=(sum(dMisclassificationRate)/dNumBootstrapReps);
 
 Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('AUC: ', ''));
 Experiment.AddToReport(ReportUtils.CreateParagraph("Mean: " + string(mean(vdAUCPerBootstrap))));
@@ -256,7 +256,7 @@ Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('Other Error Met
 Experiment.AddToReport(ReportUtils.CreateParagraph("Threshold: " + string(dThresh)));
 Experiment.AddToReport(ReportUtils.CreateParagraph("False Negative Rate: " + string(dFNR))); 
 Experiment.AddToReport(ReportUtils.CreateParagraph("False Positive Rate: " + string(dFPR)));
-Experiment.AddToReport(ReportUtils.CreateParagraph("Classification Rate: " + string(dMiss)));
+Experiment.AddToReport(ReportUtils.CreateParagraph("Misclassification Rate: " + string(dMiss)));
 
 
 % Experiment.AddToReport(ReportUtils.CreateParagraphWithBoldLabel('AUC LPOB: ', ''));
