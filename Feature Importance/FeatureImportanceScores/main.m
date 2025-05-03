@@ -1,7 +1,7 @@
 
 %%%%%%%%
 % change to number of iterations
-dNumBootstraps = 10;
+dNumBootstraps = 5;
 
 Experiment.StartNewSection('Progression');
 m2bOverallFeatureImportanceMatrix = [];
@@ -10,7 +10,7 @@ ZeroCount = 0;
 for CurrentExp = 1
     
     %%%%%%%
-    sResultsDirectory = 'D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\Experiment T1_T2_DWI [2025-04-20_22.03.57]\Results'
+    sResultsDirectory = '/Users/clim/Developer/Experiment T1_T2_DWI [2025-04-30_21.22.41]/Results'
     % Example for my code: "E:\Users\rpolicelli\Brain Project\LRCP Experiments\EXP\200\003\102R [2023-12-06_21.56.24]\Results";
     
     
@@ -23,7 +23,7 @@ for CurrentExp = 1
     oClinicalDataSet = [];
     
     %%%%%%%%%%%
-    oRadiomicDataSet = FileIOUtils.LoadMatFile("D:\Users\CentralLibraryGuest\Christina\Experiments\Variables\LabelledFeatureValues_ALL_60_oldT1handler.mat", 'oLabelledFeatureValues');
+    oRadiomicDataSet = FileIOUtils.LoadMatFile("/Users/clim/Developer/GitHub/CRLM-Experiments/Variables/LabelledFeatureValues_ALL_60.mat", 'oLabelledFeatureValues');
     
     oReferenceDataSet = oRadiomicDataSet;
 
@@ -38,7 +38,7 @@ for CurrentExp = 1
         % Note: add zeros to match file nomenclature of iteration results
         clear vbRadiomicFeatureMask vdFeatureImportanceScores
         [vbRadiomicFeatureMask, vdFeatureImportanceScores] = FileIOUtils.LoadMatFile(...
-            fullfile(sResultsDirectory, "02 Bootstrapped Iterations", "Iteration " + string(StringUtils.num2str_PadWithZeros(dBootstrapIndex,2)) + " Results.mat"),...
+            fullfile(sResultsDirectory, "02 Bootstrapped Iterations", "Iteration " + string(StringUtils.num2str_PadWithZeros(dBootstrapIndex,1)) + " Results.mat"),...
             'vbRadiomicFeatureMask', 'vdFeatureImportanceScores');
         if sum(vdFeatureImportanceScores) == 0
             m2dFeatureRankingScorePerBootstrapPerFeature(dBootstrapIndex,isnan(m2dFeatureRankingScorePerBootstrapPerFeature(dBootstrapIndex,:))) = zeros(1,107);

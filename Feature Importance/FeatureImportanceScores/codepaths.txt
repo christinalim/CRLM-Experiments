@@ -1,2 +1,2 @@
-D:\Users\CentralLibraryCode\CentralLibrary-2019b-dev
-D:\Users\CentralLibraryGuest\Christina\Experiments\Random Forest Sample Code\ExperimentDataManagement
+/Users/clim/Developer/BainesCentralLibrary-2019b-dev
+/Users/clim/Developer/GitHub/CRLM-Experiments/Random Forest Sample Code/ExperimentDataManagement

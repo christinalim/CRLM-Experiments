@@ -1,0 +1,31 @@
+Running main.m...
+
+
+****************************************************************************************************
+
+
+
+
+****************************************************************************************************
+
+Experiment Section: Progression
+  Start Time: May 01, 2025 11:29:07
+
+****************************************************************************************************
+
+
+sResultsDirectory =
+
+    '/Users/clim/Developer/Experiment T1_T2_DWI [2025-04-30_21.22.41]/Results'
+
+
+
+
+****************************************************************************************************
+
+
+Experiment Complete:
+             Start: May 01, 2025 11:28:50
+               End: May 01, 2025 11:29:09
+      Time Elapsed: 00:00:19
+  Output Directory: /Users/clim/Developer/GitHub/CRLM-Experiments/Feature Importance/FeatureImportanceScores [2025-05-01_11.28.50]
